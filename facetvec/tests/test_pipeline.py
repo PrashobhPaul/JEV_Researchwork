@@ -116,3 +116,18 @@ def test_query_builders():
     assert len(opened) == 4 and all(len(q.truth) == 1 for q in opened)
     idx = LexicalIndex(recs)
     assert idx.search("vertical tabs")[0][0] == 4
+
+
+def test_reapply_oracle_uses_current_mapping():
+    from facetvec.corpus.github_issues import reapply_oracle
+
+    recs = corpus()
+    cfg = json.loads(json.dumps(CFG))
+    cfg["oracle"]["crash"]["map"]["yes"].append("perf")
+    recs[1].labels.append("perf")
+    kept, changed = reapply_oracle(recs, cfg)
+    assert len(kept) == len(recs) and changed == 1
+    assert kept[1].oracle["crash"] == "yes"
+    cfg["oracle"]["kind"]["map"] = {"bug": ["bug"]}  # feature no longer maps -> required facet missing
+    kept, _ = reapply_oracle(kept, cfg)
+    assert all(r.oracle["kind"] == "bug" for r in kept) and len(kept) < len(recs)
