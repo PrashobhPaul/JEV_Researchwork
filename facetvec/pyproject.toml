@@ -1,0 +1,14 @@
+[project]
+name = "facetvec"
+version = "0.1.0"
+description = "Named facet vectors from a decision model, evaluated against dense and lexical retrieval on real GitHub issues"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = ["numpy>=1.26", "rank-bm25>=0.2.2"]
+
+[project.optional-dependencies]
+models = ["torch", "transformers>=4.45", "sentence-transformers>=3.0"]
+
+[tool.setuptools.packages.find]
+include = ["facetvec*"]

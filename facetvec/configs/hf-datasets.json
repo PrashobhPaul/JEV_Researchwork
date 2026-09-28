@@ -1,0 +1,160 @@
+{
+  "name": "hf-datasets",
+  "source": {
+    "type": "jsonl_url",
+    "url": "https://huggingface.co/datasets/lewtun/github-issues/resolve/main/datasets-issues-with-comments.jsonl",
+    "repo": "huggingface/datasets",
+    "max_records": 300
+  },
+  "min_body_chars": 120,
+  "max_body_chars": 3500,
+  "min_records": 100,
+  "balance_facet": "kind",
+  "oracle": {
+    "kind": {
+      "required": true,
+      "map": {
+        "bug": [
+          "bug",
+          "dataset bug",
+          "metric bug"
+        ],
+        "enhancement": [
+          "enhancement",
+          "dataset request",
+          "metric request"
+        ],
+        "question": [
+          "question",
+          "generic discussion",
+          "dataset discussion",
+          "metric discussion"
+        ],
+        "docs": [
+          "documentation"
+        ]
+      }
+    },
+    "area": {
+      "default": "other",
+      "map": {
+        "dataset": [
+          "dataset*"
+        ],
+        "metric": [
+          "metric*"
+        ],
+        "viewer": [
+          "nlp-viewer"
+        ],
+        "streaming": [
+          "streaming"
+        ],
+        "speech": [
+          "speech"
+        ]
+      }
+    }
+  },
+  "questions": [
+    {
+      "kind": "choice",
+      "name": "kind",
+      "question": "What kind of issue is this document? A bug report, an enhancement or new-dataset request, a question or discussion, or a documentation issue?",
+      "options": [
+        "bug",
+        "enhancement",
+        "question",
+        "docs"
+      ]
+    },
+    {
+      "kind": "choice",
+      "name": "area",
+      "question": "Which part of the library does this issue concern: a specific dataset, an evaluation metric, the dataset viewer website, streaming, speech data, or something else?",
+      "options": [
+        "dataset",
+        "metric",
+        "viewer",
+        "streaming",
+        "speech",
+        "other"
+      ]
+    },
+    {
+      "kind": "noul",
+      "name": "traceback",
+      "question": "This document includes a Python traceback or an error message."
+    }
+  ],
+  "decision_model": {
+    "adapter": "logit-readout",
+    "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
+    "max_state_tokens": 640,
+    "rotations": 2,
+    "prior_alpha": 1.0
+  },
+  "dense_model": "BAAI/bge-small-en-v1.5",
+  "query_encoder": {
+    "filter_at": 0.6,
+    "prefer_at": 0.4
+  },
+  "k": 10,
+  "typed_queries": {
+    "templates": [
+      "{kind}",
+      "{kind} {area}",
+      "{area} {traceback}"
+    ],
+    "per_template": 8,
+    "min_truth": 3,
+    "max_truth_fraction": 0.5,
+    "phrases": {
+      "kind": {
+        "bug": [
+          "bugs",
+          "bug reports",
+          "things that are broken"
+        ],
+        "enhancement": [
+          "enhancement requests",
+          "requests for new datasets or features"
+        ],
+        "question": [
+          "questions",
+          "user questions and discussions"
+        ],
+        "docs": [
+          "documentation issues"
+        ]
+      },
+      "area": {
+        "dataset": [
+          "about a specific dataset",
+          "concerning one dataset"
+        ],
+        "metric": [
+          "about evaluation metrics"
+        ],
+        "viewer": [
+          "about the dataset viewer"
+        ],
+        "streaming": [
+          "about streaming"
+        ],
+        "speech": [
+          "about speech data"
+        ]
+      },
+      "traceback": {
+        "yes": [
+          "with a traceback",
+          "that include an error message"
+        ]
+      }
+    }
+  },
+  "open_queries": {
+    "n": 60
+  }
+}

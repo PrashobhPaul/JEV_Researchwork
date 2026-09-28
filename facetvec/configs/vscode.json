@@ -1,0 +1,261 @@
+{
+  "name": "vscode",
+  "source": {
+    "type": "github_api",
+    "repo": "microsoft/vscode",
+    "state": "closed",
+    "max_fetch": 2000,
+    "max_records": 400
+  },
+  "min_body_chars": 120,
+  "max_body_chars": 3500,
+  "min_records": 150,
+  "balance_facet": "kind",
+  "oracle": {
+    "kind": {
+      "required": true,
+      "map": {
+        "bug": [
+          "bug"
+        ],
+        "feature": [
+          "feature-request"
+        ],
+        "debt": [
+          "debt"
+        ],
+        "question": [
+          "*question"
+        ]
+      }
+    },
+    "area": {
+      "default": "other",
+      "map": {
+        "terminal": [
+          "terminal*"
+        ],
+        "editor": [
+          "editor-*"
+        ],
+        "debug": [
+          "debug*"
+        ],
+        "extensions": [
+          "extensions*",
+          "extension-host"
+        ],
+        "scm": [
+          "git",
+          "scm",
+          "github*"
+        ],
+        "notebook": [
+          "notebook*"
+        ],
+        "workbench": [
+          "workbench-*"
+        ],
+        "remote": [
+          "remote*",
+          "ssh",
+          "wsl",
+          "containers"
+        ]
+      }
+    },
+    "platform": {
+      "default": "any",
+      "map": {
+        "windows": [
+          "windows"
+        ],
+        "macos": [
+          "macos"
+        ],
+        "linux": [
+          "linux"
+        ]
+      }
+    },
+    "regression": {
+      "default": "no",
+      "map": {
+        "yes": [
+          "regression"
+        ]
+      }
+    },
+    "crash": {
+      "default": "no",
+      "map": {
+        "yes": [
+          "freeze-slow-crash-leak"
+        ]
+      }
+    }
+  },
+  "questions": [
+    {
+      "kind": "choice",
+      "name": "kind",
+      "question": "What kind of issue is this document? A bug report, a request for a new feature, an internal engineering-debt task, or a question from a user?",
+      "options": [
+        "bug",
+        "feature",
+        "debt",
+        "question"
+      ]
+    },
+    {
+      "kind": "choice",
+      "name": "area",
+      "question": "Which part of the editor product does this issue concern?",
+      "options": [
+        "terminal",
+        "editor",
+        "debug",
+        "extensions",
+        "scm",
+        "notebook",
+        "workbench",
+        "remote",
+        "other"
+      ]
+    },
+    {
+      "kind": "choice",
+      "name": "platform",
+      "question": "Which operating system does this issue specifically concern? Choose 'any' if none is specific.",
+      "options": [
+        "windows",
+        "macos",
+        "linux",
+        "any"
+      ]
+    },
+    {
+      "kind": "noul",
+      "name": "regression",
+      "question": "Something described here used to work and stopped working after an update."
+    },
+    {
+      "kind": "noul",
+      "name": "crash",
+      "question": "This document reports a crash, freeze, hang, memory leak, or severe slowdown."
+    },
+    {
+      "kind": "noul",
+      "name": "has_repro",
+      "question": "This document includes concrete, numbered steps to reproduce the behaviour."
+    }
+  ],
+  "decision_model": {
+    "adapter": "logit-readout",
+    "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
+    "max_state_tokens": 640,
+    "rotations": 2,
+    "prior_alpha": 1.0
+  },
+  "dense_model": "BAAI/bge-small-en-v1.5",
+  "query_encoder": {
+    "filter_at": 0.6,
+    "prefer_at": 0.4
+  },
+  "k": 10,
+  "typed_queries": {
+    "templates": [
+      "{kind}",
+      "{kind} {area}",
+      "{kind} {platform}",
+      "{kind} {area} {platform}",
+      "{kind} {regression}",
+      "{kind} {crash}",
+      "{area} {crash}"
+    ],
+    "per_template": 6,
+    "min_truth": 3,
+    "max_truth_fraction": 0.5,
+    "phrases": {
+      "kind": {
+        "bug": [
+          "bugs",
+          "bug reports",
+          "things that are broken"
+        ],
+        "feature": [
+          "feature requests",
+          "requests for new features",
+          "enhancement ideas"
+        ],
+        "debt": [
+          "engineering debt",
+          "tech debt tasks"
+        ],
+        "question": [
+          "user questions",
+          "questions"
+        ]
+      },
+      "area": {
+        "terminal": [
+          "about the integrated terminal",
+          "in the terminal"
+        ],
+        "editor": [
+          "in the text editor",
+          "about the editor"
+        ],
+        "debug": [
+          "about debugging",
+          "in the debugger"
+        ],
+        "extensions": [
+          "about extensions",
+          "related to the extension host"
+        ],
+        "scm": [
+          "about git",
+          "about source control"
+        ],
+        "notebook": [
+          "about notebooks"
+        ],
+        "workbench": [
+          "in the workbench UI"
+        ],
+        "remote": [
+          "about remote development",
+          "about ssh or containers"
+        ]
+      },
+      "platform": {
+        "windows": [
+          "on windows"
+        ],
+        "macos": [
+          "on macos",
+          "on a mac"
+        ],
+        "linux": [
+          "on linux"
+        ]
+      },
+      "regression": {
+        "yes": [
+          "that are regressions",
+          "that used to work"
+        ]
+      },
+      "crash": {
+        "yes": [
+          "that crash or freeze",
+          "involving a hang or freeze"
+        ]
+      }
+    }
+  },
+  "open_queries": {
+    "n": 60
+  }
+}

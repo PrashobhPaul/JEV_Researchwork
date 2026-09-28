@@ -1,0 +1,3165 @@
+{
+ "meta": {
+  "corpus": "huggingface/datasets",
+  "n_records": 60,
+  "n_questions": 3,
+  "decision_model": "logit-readout:Qwen2.5-0.5B-Instruct:r2:a1.0",
+  "dense_model": "BAAI/bge-small-en-v1.5",
+  "run_at": "2026-09-28 18:46 UTC",
+  "runner": "Linux / 1 cpu",
+  "label_minutes": 0.00013414621353149414,
+  "cache_entries": 714,
+  "model_calls": 0
+ },
+ "k": 10,
+ "n_queries": {
+  "typed": 5,
+  "open": 55
+ },
+ "summary": {
+  "bm25": {
+   "typed": {
+    "p": 0.24,
+    "r": 0.145,
+    "ndcg": 0.251
+   },
+   "open": {
+    "r": 0.982,
+    "mrr": 0.886
+   }
+  },
+  "dense": {
+   "typed": {
+    "p": 0.36,
+    "r": 0.17,
+    "ndcg": 0.391
+   },
+   "open": {
+    "r": 1.0,
+    "mrr": 0.96
+   }
+  },
+  "facets": {
+   "typed": {
+    "p": 0.54,
+    "r": 0.429,
+    "ndcg": 0.645
+   },
+   "open": {
+    "r": 0.036,
+    "mrr": 0.022
+   }
+  },
+  "fused": {
+   "typed": {
+    "p": 0.48,
+    "r": 0.342,
+    "ndcg": 0.521
+   },
+   "open": {
+    "r": 1.0,
+    "mrr": 0.932
+   }
+  },
+  "facets-oracle": {
+   "typed": {
+    "p": 0.7,
+    "r": 0.744,
+    "ndcg": 1.0
+   },
+   "open": {
+    "r": 0.055,
+    "mrr": 0.036
+   }
+  },
+  "fused-oracle": {
+   "typed": {
+    "p": 0.66,
+    "r": 0.686,
+    "ndcg": 0.867
+   },
+   "open": {
+    "r": 0.982,
+    "mrr": 0.929
+   }
+  }
+ },
+ "label_accuracy": {
+  "kind": {
+   "n": 60,
+   "accuracy": 0.7,
+   "majority_baseline": 0.5,
+   "truth_distribution": {
+    "question": 4,
+    "bug": 30,
+    "enhancement": 26
+   }
+  },
+  "area": {
+   "n": 60,
+   "accuracy": 0.583,
+   "majority_baseline": 0.8,
+   "truth_distribution": {
+    "other": 48,
+    "dataset": 11,
+    "metric": 1
+   }
+  }
+ },
+ "query_encoder_accuracy": 0.467,
+ "examples": [
+  {
+   "query": "bug reports",
+   "top": [
+    {
+     "id": 2470,
+     "title": "Crash when `num_proc` > dataset length for `map()` on a `datasets.Dataset`.",
+     "in_truth": true,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "bug",
+       "mode": "filter",
+       "p": 0.96
+      },
+      {
+       "facet": "traceback",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.53
+      }
+     ]
+    },
+    {
+     "id": 2645,
+     "title": "load_dataset processing failed with OS error after downloading a dataset",
+     "in_truth": true,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "bug",
+       "mode": "filter",
+       "p": 0.96
+      },
+      {
+       "facet": "traceback",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.4
+      }
+     ]
+    },
+    {
+     "id": 2643,
+     "title": "Enum used in map functions will raise a RecursionError with dill.",
+     "in_truth": true,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "bug",
+       "mode": "filter",
+       "p": 0.93
+      },
+      {
+       "facet": "traceback",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.53
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "query": "enhancement requests",
+   "top": [
+    {
+     "id": 1064,
+     "title": "Not support links with 302 redirect",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "enhancement",
+       "mode": "filter",
+       "p": 0.09
+      },
+      {
+       "facet": "traceback",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.36
+      }
+     ]
+    },
+    {
+     "id": 2262,
+     "title": "NewsPH NLI dataset script fails to access test data.",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "enhancement",
+       "mode": "filter",
+       "p": 0.09
+      },
+      {
+       "facet": "traceback",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.71
+      }
+     ]
+    },
+    {
+     "id": 2736,
+     "title": "Add Microsoft Building Footprints dataset",
+     "in_truth": true,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "enhancement",
+       "mode": "filter",
+       "p": 0.71
+      },
+      {
+       "facet": "traceback",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.08
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "query": "questions",
+   "top": [
+    {
+     "id": 2447,
+     "title": "dataset adversarial_qa has no answers in the \"test\" set",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "traceback",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.26
+      }
+     ]
+    },
+    {
+     "id": 2406,
+     "title": "Add guide on using task templates to documentation",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "traceback",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.15
+      }
+     ]
+    },
+    {
+     "id": 883,
+     "title": "Downloading/caching only a part of a datasets' dataset.",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "traceback",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.16
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "per_query": [
+  {
+   "id": "typed-01",
+   "family": "typed",
+   "text": "bug reports",
+   "n_truth": 30,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 1.0,
+     "r": 0.3333333333333333,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 1.0,
+     "r": 0.3333333333333333,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 1.0,
+     "r": 0.3333333333333333,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 1.0,
+     "r": 0.3333333333333333,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.3333333333333333,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 1.0,
+     "r": 0.3333333333333333,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-02",
+   "family": "typed",
+   "text": "enhancement requests",
+   "n_truth": 26,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "enhancement"
+    ],
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.6,
+     "r": 0.23076923076923078,
+     "ndcg": 0.6816808362189437,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.9,
+     "r": 0.34615384615384615,
+     "ndcg": 0.9363792118010481,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.7,
+     "r": 0.2692307692307692,
+     "ndcg": 0.5747915663739762,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.38461538461538464,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.9,
+     "r": 0.34615384615384615,
+     "ndcg": 0.7799082337019198,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "typed-03",
+   "family": "typed",
+   "text": "questions",
+   "n_truth": 4,
+   "intent_model": {
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.13905617951077562,
+     "mrr": 0.16666666666666666
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.4,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.4,
+     "r": 1.0,
+     "ndcg": 0.7486761295186739,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "typed-04",
+   "family": "typed",
+   "text": "things that are broken about a specific dataset",
+   "n_truth": 4,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.15101961822780524,
+     "mrr": 0.2
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.2,
+     "r": 0.5,
+     "ndcg": 0.3764290720714305,
+     "mrr": 0.5
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.15101961822780524,
+     "mrr": 0.2
+    },
+    "facets-oracle": {
+     "p": 0.4,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.3,
+     "r": 0.75,
+     "ndcg": 0.8048099750039491,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-05",
+   "family": "typed",
+   "text": "enhancement requests about a specific dataset",
+   "n_truth": 7,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "enhancement"
+    ],
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.14285714285714285,
+     "ndcg": 0.10633668103022986,
+     "mrr": 0.2
+    },
+    "dense": {
+     "p": 0.2,
+     "r": 0.2857142857142857,
+     "ndcg": 0.27134058233820724,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.5,
+     "r": 0.7142857142857143,
+     "ndcg": 0.7752805260144072,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.6,
+     "r": 0.8571428571428571,
+     "ndcg": 0.8816172070446371,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.7,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.7,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-01",
+   "family": "open",
+   "text": "Add web_split dataset for Paraphase and Rephrase benchmark",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-02",
+   "family": "open",
+   "text": "Something is wrong with WMT 19 kk-en dataset",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-03",
+   "family": "open",
+   "text": "Add  `remove_columns` to `IterableDataset `",
+   "n_truth": 1,
+   "intent_model": {
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.38685280723454163,
+     "mrr": 0.2
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-04",
+   "family": "open",
+   "text": "Crash when `num_proc` > dataset length for `map()` on a `datasets.Dataset`.",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-05",
+   "family": "open",
+   "text": "Feature Request: Support for Pandas `Categorical`",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "enhancement"
+    ],
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.38685280723454163,
+     "mrr": 0.2
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-06",
+   "family": "open",
+   "text": "Custom feature types in `load_dataset` from CSV",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-07",
+   "family": "open",
+   "text": "Only user permission of saved cache files, not group",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-08",
+   "family": "open",
+   "text": "Saving large in-memory datasets with save_to_disk crashes because of pickling",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "prefer",
+     "viewer"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-09",
+   "family": "open",
+   "text": "Enum used in map functions will raise a RecursionError with dill.",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "prefer",
+     "metric"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-10",
+   "family": "open",
+   "text": "Multilabel metrics not supported",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-11",
+   "family": "open",
+   "text": "pyarrow.lib.ArrowNotImplementedError: MakeBuilder: cannot construct builder for type extension<arrow.py_extension_type>",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-12",
+   "family": "open",
+   "text": "dataset adversarial_qa has no answers in the \"test\" set",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-13",
+   "family": "open",
+   "text": "Loading Data From S3 Path in Sagemaker",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-14",
+   "family": "open",
+   "text": "[GEM] add ToTTo Table-to-text dataset",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-15",
+   "family": "open",
+   "text": "Sentence Boundaries missing in Dataset: xtreme / udpos",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-16",
+   "family": "open",
+   "text": "`datasets.map` multi processing much slower than single processing",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-17",
+   "family": "open",
+   "text": "Synchronize table metadata with features",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-18",
+   "family": "open",
+   "text": "Fix PermissionError on Windows when using tqdm >=4.50.0",
+   "n_truth": 1,
+   "intent_model": {
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.43067655807339306,
+     "mrr": 0.25
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-19",
+   "family": "open",
+   "text": "Access to key in DatasetDict map",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-20",
+   "family": "open",
+   "text": "Add support for other languages for rouge",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "enhancement"
+    ],
+    "area": [
+     "filter",
+     "other"
+    ],
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    }
+   }
+  },
+  {
+   "id": "open-21",
+   "family": "open",
+   "text": "Remove compression from xopen",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-22",
+   "family": "open",
+   "text": "Columns are removed before or after map function applied?",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-23",
+   "family": "open",
+   "text": "Add Microsoft Building Footprints dataset",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-24",
+   "family": "open",
+   "text": "load_dataset processing failed with OS error after downloading a dataset",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "question"
+    ],
+    "area": [
+     "prefer",
+     "viewer"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-25",
+   "family": "open",
+   "text": "NewsPH NLI dataset script fails to access test data.",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-26",
+   "family": "open",
+   "text": "Unexpected type after `concatenate_datasets`",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "prefer",
+     "viewer"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-27",
+   "family": "open",
+   "text": "Dataset load_from_disk is too slow",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-28",
+   "family": "open",
+   "text": "Remove `extended` field from dataset tagger",
+   "n_truth": 1,
+   "intent_model": {
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-29",
+   "family": "open",
+   "text": "DuplicatedKeysError on personal dataset",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-30",
+   "family": "open",
+   "text": "Calls to map are not cached.",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.2890648263178879,
+     "mrr": 0.1
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.2890648263178879,
+     "mrr": 0.1
+    }
+   }
+  },
+  {
+   "id": "open-31",
+   "family": "open",
+   "text": "Allow for incremental cumulative metric updates in a distributed setup",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "enhancement"
+    ],
+    "area": [
+     "filter",
+     "metric"
+    ],
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-32",
+   "family": "open",
+   "text": "Token classification labels are strings and we don't have the list of labels",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-33",
+   "family": "open",
+   "text": "Error loading C4 realnewslike dataset",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-34",
+   "family": "open",
+   "text": "writing Datasets in a human readable format",
+   "n_truth": 1,
+   "intent_model": {
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-35",
+   "family": "open",
+   "text": "Consider renaming to nld",
+   "n_truth": 1,
+   "intent_model": {
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-36",
+   "family": "open",
+   "text": "equal operation to perform unbatch for huggingface datasets",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-37",
+   "family": "open",
+   "text": "Add guide on using task templates to documentation",
+   "n_truth": 1,
+   "intent_model": {
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-38",
+   "family": "open",
+   "text": "can't load local dataset: pyarrow.lib.ArrowInvalid: straddling object straddles two block boundaries",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "prefer",
+     "viewer"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-39",
+   "family": "open",
+   "text": "Mutable columns argument breaks set_format",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "prefer",
+     "metric"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-40",
+   "family": "open",
+   "text": "Not support links with 302 redirect",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-41",
+   "family": "open",
+   "text": "Set download/extracted paths configurable",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-42",
+   "family": "open",
+   "text": "Caching processed dataset at wrong folder",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-43",
+   "family": "open",
+   "text": "Possible Bug: Small training/dataset file creates gigantic output",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-44",
+   "family": "open",
+   "text": "Enable streaming for Wikipedia corpora",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "enhancement"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-45",
+   "family": "open",
+   "text": "Warnings and documentation about pickling incorrect",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-46",
+   "family": "open",
+   "text": "`ArrowInvalid: Added column's length must match table's length.` after using `select`",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-47",
+   "family": "open",
+   "text": "[Feature Request] Add optional parameter in text loading script to preserve linebreaks",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "enhancement"
+    ],
+    "traceback": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3333333333333333,
+     "mrr": 0.14285714285714285
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-48",
+   "family": "open",
+   "text": "Error when downloading C4",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-49",
+   "family": "open",
+   "text": "\u2753 Sharing ElasticSearch indexed dataset",
+   "n_truth": 1,
+   "intent_model": {
+    "traceback": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-50",
+   "family": "open",
+   "text": "adding progress bar / ETA for `load_dataset`",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3333333333333333,
+     "mrr": 0.14285714285714285
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-51",
+   "family": "open",
+   "text": "Downloading/caching only a part of a datasets' dataset.",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3010299956639812,
+     "mrr": 0.1111111111111111
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-52",
+   "family": "open",
+   "text": "timit_asr dataset only includes one text phrase",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-53",
+   "family": "open",
+   "text": "Use ETag in streaming mode to detect resource updates",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-54",
+   "family": "open",
+   "text": "test.json has been removed from the limit dataset repo (breaks dataset)",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-55",
+   "family": "open",
+   "text": "AttributeError: 'DatasetDict' object has no attribute 'train_test_split'",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "prefer",
+     "viewer"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  }
+ ]
+}
