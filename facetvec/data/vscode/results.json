@@ -5,23 +5,23 @@
   "n_questions": 6,
   "decision_model": "logit-readout:Qwen2.5-0.5B-Instruct:r2:a1.0",
   "dense_model": "BAAI/bge-small-en-v1.5",
-  "run_at": "2026-09-28 20:55 UTC",
+  "run_at": "2026-09-28 21:40 UTC",
   "runner": "Linux / 4 cpu",
-  "label_minutes": 56.553659625848134,
-  "cache_entries": 2832,
-  "model_calls": 472
+  "label_minutes": 23.052087314923604,
+  "cache_entries": 3387,
+  "model_calls": 480
  },
  "k": 10,
  "n_queries": {
-  "typed": 12,
+  "typed": 20,
   "open": 60
  },
  "summary": {
   "bm25": {
    "typed": {
-    "p": 0.1,
-    "r": 0.122,
-    "ndcg": 0.129
+    "p": 0.11,
+    "r": 0.091,
+    "ndcg": 0.128
    },
    "open": {
     "r": 0.833,
@@ -30,9 +30,9 @@
   },
   "dense": {
    "typed": {
-    "p": 0.133,
-    "r": 0.171,
-    "ndcg": 0.209
+    "p": 0.15,
+    "r": 0.122,
+    "ndcg": 0.199
    },
    "open": {
     "r": 0.917,
@@ -41,9 +41,9 @@
   },
   "facets": {
    "typed": {
-    "p": 0.125,
-    "r": 0.072,
-    "ndcg": 0.135
+    "p": 0.13,
+    "r": 0.052,
+    "ndcg": 0.144
    },
    "open": {
     "r": 0.05,
@@ -52,9 +52,9 @@
   },
   "fused": {
    "typed": {
-    "p": 0.183,
-    "r": 0.213,
-    "ndcg": 0.262
+    "p": 0.21,
+    "r": 0.176,
+    "ndcg": 0.246
    },
    "open": {
     "r": 0.883,
@@ -63,20 +63,20 @@
   },
   "facets-oracle": {
    "typed": {
-    "p": 0.625,
-    "r": 0.917,
+    "p": 0.745,
+    "r": 0.792,
     "ndcg": 1.0
    },
    "open": {
     "r": 0.017,
-    "mrr": 0.002
+    "mrr": 0.008
    }
   },
   "fused-oracle": {
    "typed": {
-    "p": 0.433,
-    "r": 0.649,
-    "ndcg": 0.734
+    "p": 0.47,
+    "r": 0.485,
+    "ndcg": 0.677
    },
    "open": {
     "r": 0.883,
@@ -97,15 +97,16 @@
   },
   "area": {
    "n": 400,
-   "accuracy": 0.072,
-   "majority_baseline": 0.88,
+   "accuracy": 0.09,
+   "majority_baseline": 0.448,
    "truth_distribution": {
     "editor": 6,
-    "workbench": 14,
-    "other": 352,
+    "workbench": 26,
     "debug": 7,
+    "other": 161,
     "scm": 2,
     "terminal": 11,
+    "chat": 179,
     "notebook": 1,
     "remote": 7
    }
@@ -123,11 +124,11 @@
   },
   "regression": {
    "n": 400,
-   "accuracy": 0.142,
-   "majority_baseline": 0.985,
+   "accuracy": 0.172,
+   "majority_baseline": 0.95,
    "truth_distribution": {
-    "no": 394,
-    "yes": 6
+    "no": 380,
+    "yes": 20
    }
   },
   "crash": {
@@ -140,7 +141,7 @@
    }
   }
  },
- "query_encoder_accuracy": 0.458,
+ "query_encoder_accuracy": 0.383,
  "examples": [
   {
    "query": "requests for new features",
@@ -339,98 +340,116 @@
    ]
   },
   {
-   "query": "bug reports about ssh or containers",
+   "query": "requests for new features about the integrated terminal",
    "top": [
     {
-     "id": 329938,
-     "title": "SSH agent host ignores StrictHostKeyChecking yes/no because ssh -G emits true/false",
+     "id": 338225,
+     "title": "Agents Window: Populate New Session drafts from product protocol links",
      "in_truth": false,
      "because": [
       {
        "facet": "kind",
-       "option": "bug",
+       "option": "feature",
+       "mode": "filter",
+       "p": 0.99
+      },
+      {
+       "facet": "platform",
+       "option": "windows",
        "mode": "prefer",
-       "p": 0.41
+       "p": 0.38
       },
       {
        "facet": "regression",
        "option": "yes",
        "mode": "filter",
-       "p": 0.66
+       "p": 0.45
       },
       {
        "facet": "crash",
        "option": "yes",
        "mode": "prefer",
-       "p": 0.79
+       "p": 0.38
       },
       {
        "facet": "has_repro",
        "option": "yes",
        "mode": "prefer",
-       "p": 0.3
+       "p": 0.59
       }
      ]
     },
     {
-     "id": 328475,
-     "title": "Opening recent SSH remote folder fails to connect",
-     "in_truth": false,
+     "id": 327326,
+     "title": "API: Provide a stable terminal session ID across window reloads",
+     "in_truth": true,
      "because": [
       {
        "facet": "kind",
-       "option": "bug",
+       "option": "feature",
+       "mode": "filter",
+       "p": 0.61
+      },
+      {
+       "facet": "platform",
+       "option": "windows",
        "mode": "prefer",
-       "p": 0.83
+       "p": 0.82
       },
       {
        "facet": "regression",
        "option": "yes",
+       "mode": "filter",
+       "p": 0.58
+      },
+      {
+       "facet": "crash",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.39
+      },
+      {
+       "facet": "has_repro",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.33
+      }
+     ]
+    },
+    {
+     "id": 325510,
+     "title": "Attach debugger from integrated browser's toolbar",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "feature",
        "mode": "filter",
        "p": 0.64
       },
       {
-       "facet": "crash",
-       "option": "yes",
+       "facet": "platform",
+       "option": "windows",
        "mode": "prefer",
-       "p": 0.68
-      },
-      {
-       "facet": "has_repro",
-       "option": "yes",
-       "mode": "prefer",
-       "p": 0.34
-      }
-     ]
-    },
-    {
-     "id": 327469,
-     "title": "SSH session fails to connect with \"uname is not recognized as a name or cmdlet\" when conne",
-     "in_truth": false,
-     "because": [
-      {
-       "facet": "kind",
-       "option": "bug",
-       "mode": "prefer",
-       "p": 0.69
+       "p": 0.57
       },
       {
        "facet": "regression",
        "option": "yes",
        "mode": "filter",
-       "p": 0.63
+       "p": 0.59
       },
       {
        "facet": "crash",
        "option": "yes",
        "mode": "prefer",
-       "p": 0.7
+       "p": 0.33
       },
       {
        "facet": "has_repro",
        "option": "yes",
        "mode": "prefer",
-       "p": 0.23
+       "p": 0.44
       }
      ]
     }
@@ -565,12 +584,16 @@
   {
    "id": "typed-03",
    "family": "typed",
-   "text": "bug reports about ssh or containers",
-   "n_truth": 7,
+   "text": "requests for new features about the integrated terminal",
+   "n_truth": 3,
    "intent_model": {
     "kind": [
+     "filter",
+     "feature"
+    ],
+    "platform": [
      "prefer",
-     "bug"
+     "windows"
     ],
     "regression": [
      "filter",
@@ -588,15 +611,77 @@
    "metrics": {
     "bm25": {
      "p": 0.1,
-     "r": 0.14285714285714285,
-     "ndcg": 0.10633668103022985,
+     "r": 0.3333333333333333,
+     "ndcg": 0.18154179253735267,
      "mrr": 0.2
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 0.3333333333333333,
+     "ndcg": 0.2960819109658652,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.3,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 0.3333333333333333,
+     "ndcg": 0.46927872602275644,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-04",
+   "family": "typed",
+   "text": "things that are broken about remote development",
+   "n_truth": 7,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "platform": [
+     "prefer",
+     "macos"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.14285714285714285,
+     "ndcg": 0.27487633291429087,
+     "mrr": 1.0
     },
     "dense": {
      "p": 0.1,
      "r": 0.14285714285714285,
-     "ndcg": 0.17342765698823945,
-     "mrr": 0.5
+     "ndcg": 0.13743816645714543,
+     "mrr": 0.3333333333333333
     },
     "facets": {
      "p": 0.0,
@@ -607,8 +692,8 @@
     "fused": {
      "p": 0.2,
      "r": 0.2857142857142857,
-     "ndcg": 0.2162957183053307,
-     "mrr": 0.25
+     "ndcg": 0.23535109180711322,
+     "mrr": 0.3333333333333333
     },
     "facets-oracle": {
      "p": 0.7,
@@ -617,18 +702,80 @@
      "mrr": 1.0
     },
     "fused-oracle": {
-     "p": 0.5,
-     "r": 0.7142857142857143,
-     "ndcg": 0.7601136219697595,
+     "p": 0.4,
+     "r": 0.5714285714285714,
+     "ndcg": 0.6773676006644395,
      "mrr": 1.0
     }
    }
   },
   {
-   "id": "typed-04",
+   "id": "typed-05",
+   "family": "typed",
+   "text": "tech debt tasks in the AI chat",
+   "n_truth": 4,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "debt"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.3903800499921017,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.4,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.3903800499921017,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-06",
    "family": "typed",
    "text": "bug reports in the workbench UI",
-   "n_truth": 10,
+   "n_truth": 20,
    "intent_model": {
     "kind": [
      "filter",
@@ -650,7 +797,7 @@
    "metrics": {
     "bm25": {
      "p": 0.1,
-     "r": 0.1,
+     "r": 0.05,
      "ndcg": 0.06625422345438903,
      "mrr": 0.1111111111111111
     },
@@ -661,9 +808,9 @@
      "mrr": 0.0
     },
     "facets": {
-     "p": 0.1,
+     "p": 0.2,
      "r": 0.1,
-     "ndcg": 0.11004588314904008,
+     "ndcg": 0.20483424751859086,
      "mrr": 0.3333333333333333
     },
     "fused": {
@@ -674,30 +821,96 @@
     },
     "facets-oracle": {
      "p": 1.0,
+     "r": 0.5,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.5,
+     "r": 0.25,
+     "ndcg": 0.4553242592576836,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "typed-07",
+   "family": "typed",
+   "text": "things that are broken in the debugger",
+   "n_truth": 4,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "platform": [
+     "prefer",
+     "macos"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.16812753627111746,
+     "mrr": 0.25
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.11284514134893527,
+     "mrr": 0.1
+    },
+    "facets-oracle": {
+     "p": 0.4,
      "r": 1.0,
      "ndcg": 1.0,
      "mrr": 1.0
     },
     "fused-oracle": {
      "p": 0.4,
-     "r": 0.4,
-     "ndcg": 0.40348266660099286,
-     "mrr": 0.5
+     "r": 1.0,
+     "ndcg": 0.9447176050778178,
+     "mrr": 1.0
     }
    }
   },
   {
-   "id": "typed-05",
+   "id": "typed-08",
    "family": "typed",
-   "text": "enhancement ideas about the integrated terminal",
-   "n_truth": 3,
+   "text": "requests for new features in the workbench UI",
+   "n_truth": 6,
    "intent_model": {
     "kind": [
      "filter",
      "feature"
     ],
     "regression": [
-     "filter",
+     "prefer",
      "yes"
     ],
     "crash": [
@@ -712,85 +925,27 @@
    "metrics": {
     "bm25": {
      "p": 0.1,
-     "r": 0.3333333333333333,
-     "ndcg": 0.1480409554829326,
-     "mrr": 0.125
-    },
-    "dense": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
-    },
-    "facets": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
-    },
-    "fused": {
-     "p": 0.1,
-     "r": 0.3333333333333333,
-     "ndcg": 0.15642624200758548,
+     "r": 0.16666666666666666,
+     "ndcg": 0.10086747116627115,
      "mrr": 0.14285714285714285
     },
-    "facets-oracle": {
-     "p": 0.3,
-     "r": 1.0,
-     "ndcg": 1.0,
-     "mrr": 1.0
-    },
-    "fused-oracle": {
-     "p": 0.2,
-     "r": 0.6666666666666666,
-     "ndcg": 0.6105456988825855,
-     "mrr": 1.0
-    }
-   }
-  },
-  {
-   "id": "typed-06",
-   "family": "typed",
-   "text": "things that are broken in the terminal",
-   "n_truth": 6,
-   "intent_model": {
-    "kind": [
-     "filter",
-     "bug"
-    ],
-    "regression": [
-     "prefer",
-     "yes"
-    ],
-    "crash": [
-     "prefer",
-     "yes"
-    ]
-   },
-   "metrics": {
-    "bm25": {
-     "p": 0.1,
-     "r": 0.16666666666666666,
-     "ndcg": 0.10778915452451093,
-     "mrr": 0.16666666666666666
-    },
     "dense": {
-     "p": 0.1,
-     "r": 0.16666666666666666,
-     "ndcg": 0.13032376591037062,
-     "mrr": 0.25
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
     },
     "facets": {
      "p": 0.1,
      "r": 0.16666666666666666,
-     "ndcg": 0.11706259313796354,
-     "mrr": 0.2
+     "ndcg": 0.30260241349881345,
+     "mrr": 1.0
     },
     "fused": {
-     "p": 0.2,
-     "r": 0.3333333333333333,
-     "ndcg": 0.24738635904833417,
-     "mrr": 0.25
+     "p": 0.1,
+     "r": 0.16666666666666666,
+     "ndcg": 0.30260241349881345,
+     "mrr": 1.0
     },
     "facets-oracle": {
      "p": 0.6,
@@ -799,32 +954,32 @@
      "mrr": 1.0
     },
     "fused-oracle": {
-     "p": 0.4,
-     "r": 0.6666666666666666,
-     "ndcg": 0.706046305905179,
+     "p": 0.2,
+     "r": 0.3333333333333333,
+     "ndcg": 0.4539036202482202,
      "mrr": 1.0
     }
    }
   },
   {
-   "id": "typed-07",
+   "id": "typed-09",
    "family": "typed",
-   "text": "requests for new features about debugging",
-   "n_truth": 3,
+   "text": "things that are broken on linux",
+   "n_truth": 4,
    "intent_model": {
     "kind": [
+     "prefer",
+     "bug"
+    ],
+    "platform": [
      "filter",
-     "feature"
+     "linux"
     ],
     "regression": [
-     "filter",
-     "yes"
-    ],
-    "crash": [
      "prefer",
      "yes"
     ],
-    "has_repro": [
+    "crash": [
      "prefer",
      "yes"
     ]
@@ -838,83 +993,21 @@
     },
     "dense": {
      "p": 0.2,
-     "r": 0.6666666666666666,
-     "ndcg": 0.6508205185601091,
-     "mrr": 1.0
+     "r": 0.5,
+     "ndcg": 0.34620964322385606,
+     "mrr": 0.3333333333333333
     },
     "facets": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.19519002499605084,
+     "mrr": 0.3333333333333333
     },
     "fused": {
-     "p": 0.1,
-     "r": 0.3333333333333333,
-     "ndcg": 0.1480409554829326,
-     "mrr": 0.125
-    },
-    "facets-oracle": {
-     "p": 0.3,
-     "r": 1.0,
-     "ndcg": 1.0,
+     "p": 0.2,
+     "r": 0.5,
+     "ndcg": 0.6366824387328317,
      "mrr": 1.0
-    },
-    "fused-oracle": {
-     "p": 0.3,
-     "r": 1.0,
-     "ndcg": 1.0,
-     "mrr": 1.0
-    }
-   }
-  },
-  {
-   "id": "typed-08",
-   "family": "typed",
-   "text": "things that are broken about debugging",
-   "n_truth": 4,
-   "intent_model": {
-    "kind": [
-     "prefer",
-     "bug"
-    ],
-    "regression": [
-     "prefer",
-     "yes"
-    ],
-    "crash": [
-     "prefer",
-     "yes"
-    ],
-    "has_repro": [
-     "prefer",
-     "yes"
-    ]
-   },
-   "metrics": {
-    "bm25": {
-     "p": 0.1,
-     "r": 0.25,
-     "ndcg": 0.16812753627111746,
-     "mrr": 0.25
-    },
-    "dense": {
-     "p": 0.1,
-     "r": 0.25,
-     "ndcg": 0.13012668333070054,
-     "mrr": 0.14285714285714285
-    },
-    "facets": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
-    },
-    "fused": {
-     "p": 0.1,
-     "r": 0.25,
-     "ndcg": 0.24630238874073,
-     "mrr": 0.5
     },
     "facets-oracle": {
      "p": 0.4,
@@ -925,13 +1018,13 @@
     "fused-oracle": {
      "p": 0.4,
      "r": 1.0,
-     "ndcg": 0.9223260797603763,
+     "ndcg": 1.0,
      "mrr": 1.0
     }
    }
   },
   {
-   "id": "typed-09",
+   "id": "typed-10",
    "family": "typed",
    "text": "bugs on windows",
    "n_truth": 4,
@@ -997,72 +1090,10 @@
    }
   },
   {
-   "id": "typed-10",
-   "family": "typed",
-   "text": "things that are broken on linux",
-   "n_truth": 4,
-   "intent_model": {
-    "kind": [
-     "prefer",
-     "bug"
-    ],
-    "platform": [
-     "filter",
-     "linux"
-    ],
-    "regression": [
-     "prefer",
-     "yes"
-    ],
-    "crash": [
-     "prefer",
-     "yes"
-    ]
-   },
-   "metrics": {
-    "bm25": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
-    },
-    "dense": {
-     "p": 0.2,
-     "r": 0.5,
-     "ndcg": 0.34620964322385606,
-     "mrr": 0.3333333333333333
-    },
-    "facets": {
-     "p": 0.1,
-     "r": 0.25,
-     "ndcg": 0.19519002499605084,
-     "mrr": 0.3333333333333333
-    },
-    "fused": {
-     "p": 0.2,
-     "r": 0.5,
-     "ndcg": 0.6366824387328317,
-     "mrr": 1.0
-    },
-    "facets-oracle": {
-     "p": 0.4,
-     "r": 1.0,
-     "ndcg": 1.0,
-     "mrr": 1.0
-    },
-    "fused-oracle": {
-     "p": 0.4,
-     "r": 1.0,
-     "ndcg": 1.0,
-     "mrr": 1.0
-    }
-   }
-  },
-  {
    "id": "typed-11",
    "family": "typed",
-   "text": "things that are broken that used to work",
-   "n_truth": 6,
+   "text": "things that are broken that are regressions",
+   "n_truth": 20,
    "intent_model": {
     "kind": [
      "prefer",
@@ -1083,47 +1114,47 @@
    },
    "metrics": {
     "bm25": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.07839826897867533,
+     "mrr": 0.16666666666666666
     },
     "dense": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.13886244387355454,
+     "mrr": 0.5
     },
     "facets": {
      "p": 0.1,
-     "r": 0.16666666666666666,
-     "ndcg": 0.0874717141014082,
-     "mrr": 0.1
+     "r": 0.05,
+     "ndcg": 0.06625422345438903,
+     "mrr": 0.1111111111111111
     },
     "fused": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.06625422345438903,
+     "mrr": 0.1111111111111111
     },
     "facets-oracle": {
-     "p": 0.6,
-     "r": 1.0,
+     "p": 1.0,
+     "r": 0.5,
      "ndcg": 1.0,
      "mrr": 1.0
     },
     "fused-oracle": {
-     "p": 0.2,
-     "r": 0.3333333333333333,
-     "ndcg": 0.198881557747969,
-     "mrr": 0.16666666666666666
+     "p": 0.8,
+     "r": 0.4,
+     "ndcg": 0.7975167679274937,
+     "mrr": 1.0
     }
    }
   },
   {
    "id": "typed-12",
    "family": "typed",
-   "text": "bug reports that crash or freeze",
+   "text": "things that are broken that crash or freeze",
    "n_truth": 8,
    "intent_model": {
     "kind": [
@@ -1131,15 +1162,11 @@
      "bug"
     ],
     "regression": [
-     "filter",
+     "prefer",
      "yes"
     ],
     "crash": [
      "filter",
-     "yes"
-    ],
-    "has_repro": [
-     "prefer",
      "yes"
     ]
    },
@@ -1163,10 +1190,10 @@
      "mrr": 0.0
     },
     "fused": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
+     "p": 0.1,
+     "r": 0.125,
+     "ndcg": 0.07311683844390994,
+     "mrr": 0.1
     },
     "facets-oracle": {
      "p": 0.8,
@@ -1175,10 +1202,494 @@
      "mrr": 1.0
     },
     "fused-oracle": {
-     "p": 0.5,
-     "r": 0.625,
-     "ndcg": 0.7094198757978375,
+     "p": 0.7,
+     "r": 0.875,
+     "ndcg": 0.9202054614375518,
      "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-13",
+   "family": "typed",
+   "text": "about remote development",
+   "n_truth": 7,
+   "intent_model": {
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.14285714285714285,
+     "ndcg": 0.0979129253499678,
+     "mrr": 0.16666666666666666
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.7,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.3,
+     "r": 0.42857142857142855,
+     "ndcg": 0.5546406709327603,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-14",
+   "family": "typed",
+   "text": "about the editor",
+   "n_truth": 6,
+   "intent_model": {
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.16666666666666666,
+     "ndcg": 0.09546043308946733,
+     "mrr": 0.125
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.16666666666666666,
+     "ndcg": 0.09109240322345806,
+     "mrr": 0.1111111111111111
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 0.16666666666666666,
+     "ndcg": 0.11706259313796354,
+     "mrr": 0.2
+    },
+    "facets-oracle": {
+     "p": 0.6,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.4,
+     "r": 0.6666666666666666,
+     "ndcg": 0.6764554268686237,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-15",
+   "family": "typed",
+   "text": "about the integrated terminal",
+   "n_truth": 11,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "feature"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.3,
+     "r": 0.2727272727272727,
+     "ndcg": 0.199306233590118,
+     "mrr": 0.125
+    },
+    "dense": {
+     "p": 0.3,
+     "r": 0.2727272727272727,
+     "ndcg": 0.26462022272743835,
+     "mrr": 0.3333333333333333
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.4,
+     "r": 0.36363636363636365,
+     "ndcg": 0.33798414482679834,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.9090909090909091,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.7,
+     "r": 0.6363636363636364,
+     "ndcg": 0.800693766409882,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-16",
+   "family": "typed",
+   "text": "in the AI chat",
+   "n_truth": 179,
+   "intent_model": {
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.5,
+     "r": 0.027932960893854747,
+     "ndcg": 0.5142842514302275,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.7,
+     "r": 0.03910614525139665,
+     "ndcg": 0.7097402150304354,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.7,
+     "r": 0.03910614525139665,
+     "ndcg": 0.6378891765242928,
+     "mrr": 0.5
+    },
+    "fused": {
+     "p": 0.8,
+     "r": 0.0446927374301676,
+     "ndcg": 0.6698623505528798,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.055865921787709494,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.8,
+     "r": 0.0446927374301676,
+     "ndcg": 0.804810999209339,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-17",
+   "family": "typed",
+   "text": "in the debugger",
+   "n_truth": 7,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "platform": [
+     "prefer",
+     "macos"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.2,
+     "r": 0.2857142857142857,
+     "ndcg": 0.4483039899025303,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.2,
+     "r": 0.2857142857142857,
+     "ndcg": 0.20424960638019762,
+     "mrr": 0.2
+    },
+    "facets-oracle": {
+     "p": 0.7,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.5,
+     "r": 0.7142857142857143,
+     "ndcg": 0.719779994662349,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-18",
+   "family": "typed",
+   "text": "in the workbench UI",
+   "n_truth": 26,
+   "intent_model": {
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 0.038461538461538464,
+     "ndcg": 0.22009176629808017,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 0.038461538461538464,
+     "ndcg": 0.06625422345438903,
+     "mrr": 0.1111111111111111
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.38461538461538464,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.2,
+     "r": 0.07692307692307693,
+     "ndcg": 0.3589542101716347,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-19",
+   "family": "typed",
+   "text": "that are regressions",
+   "n_truth": 20,
+   "intent_model": {
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.13886244387355454,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.06943122193677727,
+     "mrr": 0.125
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.5,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.6,
+     "r": 0.3,
+     "ndcg": 0.6313419460517601,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-20",
+   "family": "typed",
+   "text": "that crash or freeze",
+   "n_truth": 9,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "platform": [
+     "prefer",
+     "windows"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "filter",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.1111111111111111,
+     "ndcg": 0.07834851647149511,
+     "mrr": 0.14285714285714285
+    },
+    "facets": {
+     "p": 0.2,
+     "r": 0.2222222222222222,
+     "ndcg": 0.14629191738978584,
+     "mrr": 0.14285714285714285
+    },
+    "fused": {
+     "p": 0.3,
+     "r": 0.3333333333333333,
+     "ndcg": 0.23001683138897933,
+     "mrr": 0.16666666666666666
+    },
+    "facets-oracle": {
+     "p": 0.9,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.4,
+     "r": 0.4444444444444444,
+     "ndcg": 0.38112642176191824,
+     "mrr": 0.5
     }
    }
   },
@@ -2278,10 +2789,10 @@
      "mrr": 1.0
     },
     "facets-oracle": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
     },
     "fused-oracle": {
      "p": 0.1,
@@ -2610,6 +3121,10 @@
     "kind": [
      "prefer",
      "feature"
+    ],
+    "area": [
+     "prefer",
+     "debug"
     ],
     "platform": [
      "filter",
@@ -3770,10 +4285,10 @@
      "mrr": 1.0
     },
     "facets-oracle": {
-     "p": 0.1,
-     "r": 1.0,
-     "ndcg": 0.31546487678572877,
-     "mrr": 0.125
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
     },
     "fused-oracle": {
      "p": 0.1,

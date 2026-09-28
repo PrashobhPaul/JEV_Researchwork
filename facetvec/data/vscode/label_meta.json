@@ -1,1 +1,1 @@
-{"minutes": 56.553659625848134, "model": "logit-readout:Qwen2.5-0.5B-Instruct:r2:a1.0", "model_calls": 400, "vocab_fingerprint": "33080a3fad2f"}
+{"minutes": 23.052087314923604, "model": "logit-readout:Qwen2.5-0.5B-Instruct:r2:a1.0", "model_calls": 400, "vocab_fingerprint": "f28b30a29464"}
