@@ -54,13 +54,31 @@
           "notebook*"
         ],
         "workbench": [
-          "workbench-*"
+          "workbench-*",
+          "file-explorer",
+          "titlebar",
+          "layout"
         ],
         "remote": [
           "remote*",
           "ssh",
           "wsl",
           "containers"
+        ],
+        "chat": [
+          "chat*",
+          "agent*",
+          "inline-chat",
+          "copilot*",
+          "mcp",
+          "model-*",
+          "auto-model",
+          "dictation",
+          "voice-mode",
+          "ai-customizations",
+          "gemini",
+          "claude-agent",
+          "automations"
         ]
       }
     },
@@ -82,7 +100,8 @@
       "default": "no",
       "map": {
         "yes": [
-          "regression"
+          "regression",
+          "recent-regression"
         ]
       }
     },
@@ -112,6 +131,7 @@
       "name": "area",
       "question": "Which part of the editor product does this issue concern?",
       "options": [
+        "chat",
         "terminal",
         "editor",
         "debug",
@@ -177,7 +197,10 @@
       "{kind} {area} {platform}",
       "{kind} {regression}",
       "{kind} {crash}",
-      "{area} {crash}"
+      "{area} {crash}",
+      "{area}",
+      "{regression}",
+      "{crash}"
     ],
     "per_template": 6,
     "min_truth": 3,
@@ -204,6 +227,10 @@
         ]
       },
       "area": {
+        "chat": [
+          "about chat and agents",
+          "in the AI chat"
+        ],
         "terminal": [
           "about the integrated terminal",
           "in the terminal"
