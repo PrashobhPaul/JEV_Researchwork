@@ -17,7 +17,7 @@ h1 span{color:#1f8f5f}
 .tag{position:absolute;right:18px;top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;padding:4px 9px;border-radius:999px;border:1px solid}
 .tag.g{color:#1f8f5f;border-color:#bfe3d0;background:#eaf7ef}.tag.b{color:#2f6fe0;border-color:#c9daf7;background:#eef3fd}
 .numbers{position:absolute;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.7;color:#8a97ab;word-break:normal;overflow-wrap:normal}
-.row{display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;margin:6px 0}
+.row{display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;margin:2px 0}
 .row .k{width:150px;color:#0f1e3a}.row .bar{flex:1;height:9px;background:#eef1f6;border-radius:5px;overflow:hidden;margin:0 10px}
 .row .bar i{display:block;height:100%;background:#1f8f5f;border-radius:5px}
 .row .bar.o i{background:#f59e0b}.row .bar.b i{background:#2f6fe0}
@@ -53,14 +53,14 @@ svg{position:absolute;left:0;top:0;pointer-events:none}
 <div class="panel" style="left:40px;top:222px;width:520px;height:250px">
   <div class="ph">Dense vector</div><div class="pt">answers "what is this like?"</div><span class="tag b">384 UNNAMED DIMENSIONS</span>
   <div class="numbers" style="left:22px;top:84px;width:476px;height:110px;overflow:hidden">[ 0.021, -0.113, 0.087, 0.004, -0.061, 0.132, -0.009, 0.077, -0.140, 0.052, 0.018, -0.096, 0.111, -0.027, 0.063, -0.008, 0.095, -0.119, 0.041, 0.006, -0.073, 0.128, -0.014, 0.088, -0.102, 0.036, 0.019, -0.081, 0.107, -0.033, 0.058, -0.011, 0.091, -0.124, 0.046, 0.002, -0.069, 0.135, -0.017, 0.083, -0.098, 0.031, 0.024, -0.086, 0.104, -0.038, 0.055, -0.006, 0.097, -0.116, 0.049, 0.009, -0.077, 0.131, … ]</div>
-  <div class="note" style="left:22px;top:206px;width:476px">great at similarity · silent about why · cannot be filtered on</div>
+  <div class="note" style="left:22px;top:216px;width:476px">great at similarity · silent about why · cannot be filtered on</div>
 </div>
 <div class="panel" style="left:640px;top:222px;width:520px;height:250px">
   <div class="ph">Facet vector</div><div class="pt">answers "what is this?"</div><span class="tag g">$n_questions NAMED DIMENSIONS</span>
   <div class="abs" style="left:22px;top:80px;width:476px">
 $facet_rows
   </div>
-  <div class="note" style="left:22px;top:206px;width:476px">filterable · explainable · costs one decision-model call per record</div>
+  <div class="note" style="left:22px;top:216px;width:476px">filterable · explainable · costs one decision-model call per record</div>
 </div>
 
 <!-- ROW B: pipeline -->
@@ -87,13 +87,13 @@ $result_rows
 <div class="note" style="left:40px;top:${note_top}px;width:1120px">$n_typed typed queries (truth from the repository's own labels) · $n_open open queries (a record's title → that record; titles never indexed) · labeller accuracy vs labels: $label_acc_line · second labeller $secondary_line</div>
 
 <!-- ROW D -->
-<div class="list g" style="left:40px;top:${list_top}px;width:550px;height:185px">
+<div class="list g" style="left:40px;top:${list_top}px;width:550px;height:150px">
   <h3>Use facets when</h3>
   <li>The question is typed: kind, area, platform, "is it a regression"</li>
   <li>Results must say why they matched</li>
   <li>You want filters a vector cannot give you</li>
 </div>
-<div class="list b" style="left:610px;top:${list_top}px;width:550px;height:185px">
+<div class="list b" style="left:610px;top:${list_top}px;width:550px;height:150px">
   <h3>Keep dense when</h3>
   <li>The question is open-world — nobody wrote it down in advance</li>
   <li>Similarity is the job, not a category</li>

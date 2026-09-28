@@ -84,6 +84,16 @@ def label_acc_line(res: dict) -> str:
     return " · ".join(f'{n} {a["accuracy"]:.2f} (majority {a["majority_baseline"]:.2f})' for n, a in res["label_accuracy"].items())
 
 
+def headline(s: dict) -> str:
+    """The results card's claim, chosen by the numbers so it can never contradict the table."""
+    facets, dense, fused = (s[k]["typed"]["ndcg"] for k in ("facets", "dense", "fused"))
+    if facets >= max(dense, fused):
+        return "Facets win the typed queries. Facets alone <span>collapse</span> on open ones. Fuse."
+    if fused > dense:
+        return "Fused wins the typed queries. Facets alone trail dense, and <span>collapse</span> on open ones."
+    return "Dense wins the typed queries here. Facets alone <span>collapse</span> on open ones."
+
+
 def secondary_line(sec: dict | None) -> str:
     if not sec:
         return "not run"
@@ -115,7 +125,7 @@ def context(pri: dict, sec: dict | None, repo_url: str) -> dict:
         "label_acc_line": label_acc_line(pri),
         "secondary_line": secondary_line(sec),
         "note_top": 862 + 40 + 6 * 38 + 14,
-        "list_top": 862 + 40 + 6 * 38 + 62,
+        "list_top": 862 + 40 + 6 * 38 + 84,  # clears a three-line note
         "repo_url": repo_url,
         # post numbers
         "facets_typed_ndcg": f3(facet_ndcg),
@@ -134,6 +144,7 @@ def context(pri: dict, sec: dict | None, repo_url: str) -> dict:
         "kind_majority": f3(pri["label_accuracy"].get("kind", {}).get("majority_baseline", 0.0)),
         "example_query": (pri["examples"][0]["query"] if pri.get("examples") else ""),
         "example_because": (", ".join(f'{b["facet"]}={b["option"]} ({b["p"]:.2f})' for b in pri["examples"][0]["top"][0]["because"]) if pri.get("examples") else ""),
+        "headline": headline(s),
         "run_at": m["run_at"],
         "runner": m["runner"],
     }
@@ -149,7 +160,8 @@ def matched_html(pri: dict, ctx: dict) -> str:
                 f'<span class="chip {b["mode"]}">{b["facet"]} = {b["option"]} <b>{b["p"]:.2f}</b></span>' for b in t["because"]
             )
             mark = "✓" if t["in_truth"] else "✗"
-            items.append(f'<div class="item"><div class="t"><span class="m {"y" if t["in_truth"] else "n"}">{mark}</span> #{t["id"]} {t["title"]}</div><div class="chips">{chips}</div></div>')
+            title = t["title"] + ("…" if len(t["title"]) >= 90 else "")  # results.json keeps 90 chars
+            items.append(f'<div class="item"><div class="t"><span class="m {"y" if t["in_truth"] else "n"}">{mark}</span> #{t["id"]} {title}</div><div class="chips">{chips}</div></div>')
         cards.append(f'<div class="q">query: <b>{ex["query"]}</b></div>' + "".join(items))
     return fill((TPL / "matched_because.html").read_text(), {**ctx, "cards": "\n".join(cards)})
 
