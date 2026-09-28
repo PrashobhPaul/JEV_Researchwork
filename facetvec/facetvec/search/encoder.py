@@ -26,12 +26,9 @@ QueryIntent = dict[str, Intent]
 def _query_question(q: Question) -> Question:
     """Re-phrase an index-time question as a question about a search query."""
     if isinstance(q, Noul):
-        return Noul(q.name, f"The document is a search query. The query asks only for items where: {q.question}")
+        return Noul(q.name, f"Search query. It asks only for issues where: {q.question}")
     opts = tuple(q.options) + (NOT_MENTIONED,)
-    text = (
-        f"The document is a search query. Which of these does the query ask for, regarding {q.name.replace('_', ' ')}? "
-        f"If the query does not say, answer '{NOT_MENTIONED}'."
-    )
+    text = f"Search query. Field: {q.name.replace('_', ' ')}. Which value does it ask for? '{NOT_MENTIONED}' if it does not say."
     return Choice(q.name, text, opts)
 
 
