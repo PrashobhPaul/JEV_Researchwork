@@ -5,11 +5,11 @@
   "n_questions": 6,
   "decision_model": "logit-readout:Qwen2.5-0.5B-Instruct:r2:a1.0",
   "dense_model": "BAAI/bge-small-en-v1.5",
-  "run_at": "2026-09-28 21:40 UTC",
+  "run_at": "2026-09-28 22:03 UTC",
   "runner": "Linux / 4 cpu",
-  "label_minutes": 23.052087314923604,
-  "cache_entries": 3387,
-  "model_calls": 480
+  "label_minutes": 0.0013980269432067871,
+  "cache_entries": 3867,
+  "model_calls": 80
  },
  "k": 10,
  "n_queries": {
@@ -41,24 +41,24 @@
   },
   "facets": {
    "typed": {
-    "p": 0.13,
-    "r": 0.052,
-    "ndcg": 0.144
+    "p": 0.135,
+    "r": 0.079,
+    "ndcg": 0.167
    },
    "open": {
     "r": 0.05,
-    "mrr": 0.023
+    "mrr": 0.036
    }
   },
   "fused": {
    "typed": {
-    "p": 0.21,
-    "r": 0.176,
-    "ndcg": 0.246
+    "p": 0.205,
+    "r": 0.186,
+    "ndcg": 0.25
    },
    "open": {
-    "r": 0.883,
-    "mrr": 0.617
+    "r": 0.9,
+    "mrr": 0.734
    }
   },
   "facets-oracle": {
@@ -80,7 +80,7 @@
    },
    "open": {
     "r": 0.883,
-    "mrr": 0.721
+    "mrr": 0.774
    }
   }
  },
@@ -141,7 +141,7 @@
    }
   }
  },
- "query_encoder_accuracy": 0.383,
+ "query_encoder_accuracy": 0.408,
  "examples": [
   {
    "query": "requests for new features",
@@ -160,7 +160,7 @@
       {
        "facet": "regression",
        "option": "yes",
-       "mode": "prefer",
+       "mode": "filter",
        "p": 0.63
       },
       {
@@ -178,37 +178,6 @@
      ]
     },
     {
-     "id": 338225,
-     "title": "Agents Window: Populate New Session drafts from product protocol links",
-     "in_truth": true,
-     "because": [
-      {
-       "facet": "kind",
-       "option": "feature",
-       "mode": "filter",
-       "p": 0.99
-      },
-      {
-       "facet": "regression",
-       "option": "yes",
-       "mode": "prefer",
-       "p": 0.45
-      },
-      {
-       "facet": "crash",
-       "option": "yes",
-       "mode": "prefer",
-       "p": 0.38
-      },
-      {
-       "facet": "has_repro",
-       "option": "yes",
-       "mode": "prefer",
-       "p": 0.59
-      }
-     ]
-    },
-    {
      "id": 330671,
      "title": "Surface failing CI sessions in Omni Chat",
      "in_truth": true,
@@ -222,7 +191,7 @@
       {
        "facet": "regression",
        "option": "yes",
-       "mode": "prefer",
+       "mode": "filter",
        "p": 0.65
       },
       {
@@ -236,6 +205,37 @@
        "option": "yes",
        "mode": "prefer",
        "p": 0.47
+      }
+     ]
+    },
+    {
+     "id": 338225,
+     "title": "Agents Window: Populate New Session drafts from product protocol links",
+     "in_truth": true,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "feature",
+       "mode": "filter",
+       "p": 0.99
+      },
+      {
+       "facet": "regression",
+       "option": "yes",
+       "mode": "filter",
+       "p": 0.45
+      },
+      {
+       "facet": "crash",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.38
+      },
+      {
+       "facet": "has_repro",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.59
       }
      ]
     }
@@ -252,7 +252,7 @@
       {
        "facet": "kind",
        "option": "debt",
-       "mode": "prefer",
+       "mode": "filter",
        "p": 0.86
       },
       {
@@ -276,37 +276,6 @@
      ]
     },
     {
-     "id": 205598,
-     "title": "Invoking deltaDecorations recursively could lead to leaking decorations.",
-     "in_truth": false,
-     "because": [
-      {
-       "facet": "kind",
-       "option": "debt",
-       "mode": "prefer",
-       "p": 0.04
-      },
-      {
-       "facet": "regression",
-       "option": "yes",
-       "mode": "prefer",
-       "p": 0.56
-      },
-      {
-       "facet": "crash",
-       "option": "yes",
-       "mode": "prefer",
-       "p": 0.71
-      },
-      {
-       "facet": "has_repro",
-       "option": "yes",
-       "mode": "prefer",
-       "p": 0.19
-      }
-     ]
-    },
-    {
      "id": 329042,
      "title": "Harden PowerShell terminal auto-approval parsing and default rules",
      "in_truth": true,
@@ -314,7 +283,7 @@
       {
        "facet": "kind",
        "option": "debt",
-       "mode": "prefer",
+       "mode": "filter",
        "p": 0.89
       },
       {
@@ -336,6 +305,37 @@
        "p": 0.62
       }
      ]
+    },
+    {
+     "id": 336500,
+     "title": "Long-running Agent Host sessions accumulate issue and pull-request references without clea",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "debt",
+       "mode": "filter",
+       "p": 0.28
+      },
+      {
+       "facet": "regression",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.51
+      },
+      {
+       "facet": "crash",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.38
+      },
+      {
+       "facet": "has_repro",
+       "option": "yes",
+       "mode": "prefer",
+       "p": 0.35
+      }
+     ]
     }
    ]
   },
@@ -352,12 +352,6 @@
        "option": "feature",
        "mode": "filter",
        "p": 0.99
-      },
-      {
-       "facet": "platform",
-       "option": "windows",
-       "mode": "prefer",
-       "p": 0.38
       },
       {
        "facet": "regression",
@@ -391,12 +385,6 @@
        "p": 0.61
       },
       {
-       "facet": "platform",
-       "option": "windows",
-       "mode": "prefer",
-       "p": 0.82
-      },
-      {
        "facet": "regression",
        "option": "yes",
        "mode": "filter",
@@ -426,12 +414,6 @@
        "option": "feature",
        "mode": "filter",
        "p": 0.64
-      },
-      {
-       "facet": "platform",
-       "option": "windows",
-       "mode": "prefer",
-       "p": 0.57
       },
       {
        "facet": "regression",
@@ -468,7 +450,7 @@
      "feature"
     ],
     "regression": [
-     "prefer",
+     "filter",
      "yes"
     ],
     "crash": [
@@ -526,7 +508,7 @@
    "n_truth": 11,
    "intent_model": {
     "kind": [
-     "prefer",
+     "filter",
      "debt"
     ],
     "regression": [
@@ -556,15 +538,15 @@
      "mrr": 0.0
     },
     "facets": {
-     "p": 0.1,
-     "r": 0.09090909090909091,
-     "ndcg": 0.11004588314904008,
-     "mrr": 0.3333333333333333
+     "p": 0.5,
+     "r": 0.45454545454545453,
+     "ndcg": 0.6015720654566381,
+     "mrr": 1.0
     },
     "fused": {
-     "p": 0.2,
-     "r": 0.18181818181818182,
-     "ndcg": 0.33013764944712026,
+     "p": 0.3,
+     "r": 0.2727272727272727,
+     "ndcg": 0.4440973278132557,
      "mrr": 1.0
     },
     "facets-oracle": {
@@ -590,10 +572,6 @@
     "kind": [
      "filter",
      "feature"
-    ],
-    "platform": [
-     "prefer",
-     "windows"
     ],
     "regression": [
      "filter",
@@ -657,15 +635,15 @@
      "prefer",
      "bug"
     ],
-    "platform": [
-     "prefer",
-     "macos"
-    ],
     "regression": [
      "prefer",
      "yes"
     ],
     "crash": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
      "prefer",
      "yes"
     ]
@@ -716,11 +694,11 @@
    "n_truth": 4,
    "intent_model": {
     "kind": [
-     "prefer",
+     "filter",
      "debt"
     ],
     "regression": [
-     "prefer",
+     "filter",
      "yes"
     ],
     "crash": [
@@ -746,16 +724,16 @@
      "mrr": 1.0
     },
     "facets": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.16812753627111746,
+     "mrr": 0.25
     },
     "fused": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.11751610475642714,
+     "mrr": 0.1111111111111111
     },
     "facets-oracle": {
      "p": 0.4,
@@ -778,11 +756,11 @@
    "n_truth": 20,
    "intent_model": {
     "kind": [
-     "filter",
+     "prefer",
      "bug"
     ],
     "regression": [
-     "prefer",
+     "filter",
      "yes"
     ],
     "crash": [
@@ -808,10 +786,10 @@
      "mrr": 0.0
     },
     "facets": {
-     "p": 0.2,
-     "r": 0.1,
-     "ndcg": 0.20483424751859086,
-     "mrr": 0.3333333333333333
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.08514311764162098,
+     "mrr": 0.2
     },
     "fused": {
      "p": 0.0,
@@ -845,7 +823,7 @@
     ],
     "platform": [
      "prefer",
-     "macos"
+     "linux"
     ],
     "regression": [
      "prefer",
@@ -910,7 +888,7 @@
      "feature"
     ],
     "regression": [
-     "prefer",
+     "filter",
      "yes"
     ],
     "crash": [
@@ -982,6 +960,10 @@
     "crash": [
      "prefer",
      "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
     ]
    },
    "metrics": {
@@ -1034,8 +1016,8 @@
      "bug"
     ],
     "platform": [
-     "filter",
-     "macos"
+     "prefer",
+     "windows"
     ],
     "regression": [
      "prefer",
@@ -1064,16 +1046,16 @@
      "mrr": 0.5
     },
     "facets": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
-    },
-    "fused": {
      "p": 0.1,
      "r": 0.25,
-     "ndcg": 0.16812753627111746,
-     "mrr": 0.25
+     "ndcg": 0.19519002499605084,
+     "mrr": 0.3333333333333333
+    },
+    "fused": {
+     "p": 0.2,
+     "r": 0.5,
+     "ndcg": 0.312706129752478,
+     "mrr": 0.3333333333333333
     },
     "facets-oracle": {
      "p": 0.4,
@@ -1126,10 +1108,10 @@
      "mrr": 0.5
     },
     "facets": {
-     "p": 0.1,
-     "r": 0.05,
-     "ndcg": 0.06625422345438903,
-     "mrr": 0.1111111111111111
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
     },
     "fused": {
      "p": 0.1,
@@ -1158,7 +1140,7 @@
    "n_truth": 8,
    "intent_model": {
     "kind": [
-     "filter",
+     "prefer",
      "bug"
     ],
     "regression": [
@@ -1166,7 +1148,11 @@
      "yes"
     ],
     "crash": [
-     "filter",
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
      "yes"
     ]
    },
@@ -1190,10 +1176,10 @@
      "mrr": 0.0
     },
     "fused": {
-     "p": 0.1,
-     "r": 0.125,
-     "ndcg": 0.07311683844390994,
-     "mrr": 0.1
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
     },
     "facets-oracle": {
      "p": 0.8,
@@ -1331,10 +1317,6 @@
    "text": "about the integrated terminal",
    "n_truth": 11,
    "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ],
     "regression": [
      "prefer",
      "yes"
@@ -1420,9 +1402,9 @@
      "mrr": 1.0
     },
     "facets": {
-     "p": 0.7,
-     "r": 0.03910614525139665,
-     "ndcg": 0.6378891765242928,
+     "p": 0.6,
+     "r": 0.0335195530726257,
+     "ndcg": 0.5716349530699038,
      "mrr": 0.5
     },
     "fused": {
@@ -1451,13 +1433,9 @@
    "text": "in the debugger",
    "n_truth": 7,
    "intent_model": {
-    "kind": [
-     "prefer",
-     "bug"
-    ],
     "platform": [
      "prefer",
-     "macos"
+     "linux"
     ],
     "regression": [
      "prefer",
@@ -1518,11 +1496,11 @@
    "n_truth": 26,
    "intent_model": {
     "regression": [
-     "prefer",
+     "filter",
      "yes"
     ],
     "crash": [
-     "prefer",
+     "filter",
      "yes"
     ],
     "has_repro": [
@@ -1550,10 +1528,10 @@
      "mrr": 1.0
     },
     "fused": {
-     "p": 0.1,
-     "r": 0.038461538461538464,
-     "ndcg": 0.06625422345438903,
-     "mrr": 0.1111111111111111
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
     },
     "facets-oracle": {
      "p": 1.0,
@@ -1637,10 +1615,6 @@
      "prefer",
      "bug"
     ],
-    "platform": [
-     "prefer",
-     "windows"
-    ],
     "regression": [
      "prefer",
      "yes"
@@ -1668,16 +1642,16 @@
      "mrr": 0.14285714285714285
     },
     "facets": {
-     "p": 0.2,
-     "r": 0.2222222222222222,
-     "ndcg": 0.14629191738978584,
-     "mrr": 0.14285714285714285
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
     },
     "fused": {
-     "p": 0.3,
-     "r": 0.3333333333333333,
-     "ndcg": 0.23001683138897933,
-     "mrr": 0.16666666666666666
+     "p": 0.1,
+     "r": 0.1111111111111111,
+     "ndcg": 0.07834851647149511,
+     "mrr": 0.14285714285714285
     },
     "facets-oracle": {
      "p": 0.9,
@@ -1700,12 +1674,8 @@
    "n_truth": 1,
    "intent_model": {
     "kind": [
-     "filter",
-     "feature"
-    ],
-    "platform": [
      "prefer",
-     "macos"
+     "feature"
     ]
    },
    "metrics": {
@@ -1730,8 +1700,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.6309297535714575,
-     "mrr": 0.5
+     "ndcg": 1.0,
+     "mrr": 1.0
     },
     "facets-oracle": {
      "p": 0.0,
@@ -1752,12 +1722,7 @@
    "family": "open",
    "text": "Expanded Codex support in the agent host does not work",
    "n_truth": 1,
-   "intent_model": {
-    "kind": [
-     "prefer",
-     "feature"
-    ]
-   },
+   "intent_model": {},
    "metrics": {
     "bm25": {
      "p": 0.1,
@@ -1802,12 +1767,7 @@
    "family": "open",
    "text": "Agents window Markdown editor: Undo and redo do not apply edits",
    "n_truth": 1,
-   "intent_model": {
-    "platform": [
-     "prefer",
-     "windows"
-    ]
-   },
+   "intent_model": {},
    "metrics": {
     "bm25": {
      "p": 0.1,
@@ -1853,9 +1813,9 @@
    "text": "Renaming session should rename default chat",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
+    "regression": [
+     "prefer",
+     "yes"
     ],
     "has_repro": [
      "prefer",
@@ -1884,8 +1844,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.3562071871080222,
-     "mrr": 0.16666666666666666
+     "ndcg": 0.43067655807339306,
+     "mrr": 0.25
     },
     "facets-oracle": {
      "p": 0.0,
@@ -1896,8 +1856,8 @@
     "fused-oracle": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.38685280723454163,
-     "mrr": 0.2
+     "ndcg": 0.43067655807339306,
+     "mrr": 0.25
     }
    }
   },
@@ -1965,11 +1925,11 @@
    "text": "Sandbox bypass confirmation should offer disabling sandbox for the session",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ],
     "regression": [
+     "filter",
+     "yes"
+    ],
+    "crash": [
      "prefer",
      "yes"
     ],
@@ -2012,8 +1972,8 @@
     "fused-oracle": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.5,
-     "mrr": 0.3333333333333333
+     "ndcg": 1.0,
+     "mrr": 1.0
     }
    }
   },
@@ -2023,14 +1983,6 @@
    "text": "Gemini 3 Flash loops",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "prefer",
-     "feature"
-    ],
-    "platform": [
-     "prefer",
-     "macos"
-    ],
     "regression": [
      "prefer",
      "yes"
@@ -2088,16 +2040,7 @@
    "family": "open",
    "text": "Pull Requests pill popover blinks and closes unexpectedly",
    "n_truth": 1,
-   "intent_model": {
-    "kind": [
-     "prefer",
-     "feature"
-    ],
-    "platform": [
-     "prefer",
-     "macos"
-    ]
-   },
+   "intent_model": {},
    "metrics": {
     "bm25": {
      "p": 0.1,
@@ -2145,11 +2088,7 @@
    "intent_model": {
     "platform": [
      "prefer",
-     "macos"
-    ],
-    "regression": [
-     "prefer",
-     "yes"
+     "linux"
     ],
     "has_repro": [
      "prefer",
@@ -2201,20 +2140,20 @@
    "text": "Feature request: Configurable reasoning level and \u201cmax context\u201d mode in VS Code Copilot Chat",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
+    "platform": [
      "prefer",
-     "feature"
+     "linux"
     ],
     "regression": [
-     "prefer",
+     "filter",
      "yes"
     ],
     "crash": [
-     "prefer",
+     "filter",
      "yes"
     ],
     "has_repro": [
-     "prefer",
+     "filter",
      "yes"
     ]
    },
@@ -2240,8 +2179,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 1.0,
-     "mrr": 1.0
+     "ndcg": 0.38685280723454163,
+     "mrr": 0.2
     },
     "facets-oracle": {
      "p": 0.0,
@@ -2263,10 +2202,6 @@
    "text": "Allow for exporting/importing Github Copilot Chat to be done programatically",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ],
     "regression": [
      "prefer",
      "yes"
@@ -2298,8 +2233,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.6309297535714575,
-     "mrr": 0.5
+     "ndcg": 1.0,
+     "mrr": 1.0
     },
     "facets-oracle": {
      "p": 0.0,
@@ -2321,16 +2256,8 @@
    "text": "Announce new-session welcome phrases to screen readers",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ],
-    "platform": [
-     "prefer",
-     "macos"
-    ],
     "regression": [
-     "prefer",
+     "filter",
      "yes"
     ],
     "crash": [
@@ -2391,10 +2318,6 @@
      "filter",
      "feature"
     ],
-    "regression": [
-     "prefer",
-     "yes"
-    ],
     "has_repro": [
      "prefer",
      "yes"
@@ -2445,20 +2368,12 @@
    "text": "Allow to investigate stack traces in VS Code Insiders by using source maps",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ],
-    "platform": [
-     "prefer",
-     "macos"
-    ],
     "regression": [
      "prefer",
      "yes"
     ],
     "has_repro": [
-     "prefer",
+     "filter",
      "yes"
     ]
    },
@@ -2484,8 +2399,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.6309297535714575,
-     "mrr": 0.5
+     "ndcg": 1.0,
+     "mrr": 1.0
     },
     "facets-oracle": {
      "p": 0.0,
@@ -2507,13 +2422,9 @@
    "text": "can't open diff links in dev tunnel remote AH",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
+    "platform": [
      "prefer",
-     "feature"
-    ],
-    "has_repro": [
-     "prefer",
-     "yes"
+     "linux"
     ]
    },
    "metrics": {
@@ -2761,6 +2672,10 @@
     "crash": [
      "prefer",
      "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
     ]
    },
    "metrics": {
@@ -2808,9 +2723,9 @@
    "text": "Remove automation client-side support",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
+    "regression": [
      "prefer",
-     "feature"
+     "yes"
     ]
    },
    "metrics": {
@@ -2858,10 +2773,6 @@
    "text": "Profile button highlight/padding misaligned in Agents view",
    "n_truth": 1,
    "intent_model": {
-    "platform": [
-     "prefer",
-     "windows"
-    ],
     "regression": [
      "prefer",
      "yes"
@@ -2915,12 +2826,7 @@
    "family": "open",
    "text": "Fancy animated button cannot be stopped by keyboard alone",
    "n_truth": 1,
-   "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ]
-   },
+   "intent_model": {},
    "metrics": {
     "bm25": {
      "p": 0.1,
@@ -2943,8 +2849,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.38685280723454163,
-     "mrr": 0.2
+     "ndcg": 1.0,
+     "mrr": 1.0
     },
     "facets-oracle": {
      "p": 0.0,
@@ -2955,8 +2861,8 @@
     "fused-oracle": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.5,
-     "mrr": 0.3333333333333333
+     "ndcg": 1.0,
+     "mrr": 1.0
     }
    }
   },
@@ -2966,15 +2872,15 @@
    "text": "Agent Host terminal auto-approve should use PowerShell grammar for PowerShell commands",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "prefer",
-     "feature"
-    ],
     "platform": [
-     "filter",
-     "macos"
+     "prefer",
+     "linux"
     ],
     "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
      "prefer",
      "yes"
     ],
@@ -3005,8 +2911,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.38685280723454163,
-     "mrr": 0.2
+     "ndcg": 1.0,
+     "mrr": 1.0
     },
     "facets-oracle": {
      "p": 0.0,
@@ -3118,17 +3024,13 @@
    "text": "Bound Linux smoke-test disk diagnostics to avoid job timeout",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "prefer",
-     "feature"
-    ],
-    "area": [
-     "prefer",
-     "debug"
-    ],
     "platform": [
      "filter",
      "linux"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
     ],
     "has_repro": [
      "prefer",
@@ -3180,10 +3082,6 @@
    "text": "Allow (modifier)+click for \"step in target\"",
    "n_truth": 1,
    "intent_model": {
-    "platform": [
-     "prefer",
-     "macos"
-    ],
     "has_repro": [
      "prefer",
      "yes"
@@ -3203,10 +3101,10 @@
      "mrr": 1.0
     },
     "facets": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
     },
     "fused": {
      "p": 0.1,
@@ -3233,12 +3131,7 @@
    "family": "open",
    "text": "Agent Customization: Unable to migrate instructions",
    "n_truth": 1,
-   "intent_model": {
-    "platform": [
-     "prefer",
-     "macos"
-    ]
-   },
+   "intent_model": {},
    "metrics": {
     "bm25": {
      "p": 0.1,
@@ -3284,8 +3177,12 @@
    "text": "Show confetti when setting enabled when `Mark as Done` is clicked on this PR merged card",
    "n_truth": 1,
    "intent_model": {
-    "regression": [
+    "platform": [
      "prefer",
+     "linux"
+    ],
+    "regression": [
+     "filter",
      "yes"
     ],
     "crash": [
@@ -3293,7 +3190,7 @@
      "yes"
     ],
     "has_repro": [
-     "prefer",
+     "filter",
      "yes"
     ]
    },
@@ -3317,10 +3214,10 @@
      "mrr": 0.14285714285714285
     },
     "fused": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
     },
     "facets-oracle": {
      "p": 0.0,
@@ -3342,10 +3239,6 @@
    "text": "Abnormal Tab with VS Code High Contrast Theme",
    "n_truth": 1,
    "intent_model": {
-    "platform": [
-     "prefer",
-     "macos"
-    ],
     "regression": [
      "prefer",
      "yes"
@@ -3404,65 +3297,11 @@
    "text": "API proposal: Expose AuthenticationSession access token lifetime",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ]
-   },
-   "metrics": {
-    "bm25": {
-     "p": 0.1,
-     "r": 1.0,
-     "ndcg": 1.0,
-     "mrr": 1.0
-    },
-    "dense": {
-     "p": 0.1,
-     "r": 1.0,
-     "ndcg": 1.0,
-     "mrr": 1.0
-    },
-    "facets": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
-    },
-    "fused": {
-     "p": 0.1,
-     "r": 1.0,
-     "ndcg": 0.43067655807339306,
-     "mrr": 0.25
-    },
-    "facets-oracle": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
-    },
-    "fused-oracle": {
-     "p": 0.1,
-     "r": 1.0,
-     "ndcg": 0.6309297535714575,
-     "mrr": 0.5
-    }
-   }
-  },
-  {
-   "id": "open-33",
-   "family": "open",
-   "text": "New \"Modern UI\" broke some of the workbench colorCustomizations",
-   "n_truth": 1,
-   "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ],
-    "platform": [
-     "filter",
-     "macos"
-    ],
     "regression": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
      "prefer",
      "yes"
     ]
@@ -3477,6 +3316,56 @@
     "dense": {
      "p": 0.1,
      "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-33",
+   "family": "open",
+   "text": "New \"Modern UI\" broke some of the workbench colorCustomizations",
+   "n_truth": 1,
+   "intent_model": {
+    "platform": [
+     "prefer",
+     "linux"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
      "ndcg": 0.6309297535714575,
      "mrr": 0.5
     },
@@ -3489,8 +3378,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.5,
-     "mrr": 0.3333333333333333
+     "ndcg": 1.0,
+     "mrr": 1.0
     },
     "facets-oracle": {
      "p": 0.0,
@@ -3566,9 +3455,13 @@
    "text": "Copy/Paste files in Explorer pastes in wrong folder",
    "n_truth": 1,
    "intent_model": {
+    "kind": [
+     "prefer",
+     "debt"
+    ],
     "platform": [
      "prefer",
-     "macos"
+     "linux"
     ]
    },
    "metrics": {
@@ -3670,11 +3563,11 @@
    "text": "Folder picker resurfaces deleted folder",
    "n_truth": 1,
    "intent_model": {
-    "platform": [
-     "prefer",
-     "macos"
-    ],
     "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
      "prefer",
      "yes"
     ],
@@ -3728,9 +3621,9 @@
    "text": "Start dictation in editor or terminal causes Chat to show it's \"dictation\" bubble",
    "n_truth": 1,
    "intent_model": {
-    "has_repro": [
+    "platform": [
      "prefer",
-     "yes"
+     "linux"
     ]
    },
    "metrics": {
@@ -3747,10 +3640,10 @@
      "mrr": 0.5
     },
     "facets": {
-     "p": 0.1,
-     "r": 1.0,
-     "ndcg": 0.43067655807339306,
-     "mrr": 0.25
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
     },
     "fused": {
      "p": 0.1,
@@ -3822,12 +3715,7 @@
    "family": "open",
    "text": "Agent Host: Copilot steering messages drop their attachments, so the agent never sees them",
    "n_truth": 1,
-   "intent_model": {
-    "has_repro": [
-     "prefer",
-     "yes"
-    ]
-   },
+   "intent_model": {},
    "metrics": {
     "bm25": {
      "p": 0.1,
@@ -3872,12 +3760,7 @@
    "family": "open",
    "text": "Allow agents to create research sessions without a new worktree",
    "n_truth": 1,
-   "intent_model": {
-    "kind": [
-     "prefer",
-     "feature"
-    ]
-   },
+   "intent_model": {},
    "metrics": {
     "bm25": {
      "p": 0.1,
@@ -3923,6 +3806,14 @@
    "text": "Expose large shell output artifact paths through the Copilot SDK",
    "n_truth": 1,
    "intent_model": {
+    "platform": [
+     "prefer",
+     "linux"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
     "has_repro": [
      "prefer",
      "yes"
@@ -3973,10 +3864,6 @@
    "text": "Chat input stack: make the notice/input seam structural instead of per-surface offsets",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ],
     "regression": [
      "prefer",
      "yes"
@@ -4012,8 +3899,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.5,
-     "mrr": 0.3333333333333333
+     "ndcg": 1.0,
+     "mrr": 1.0
     },
     "facets-oracle": {
      "p": 0.0,
@@ -4024,8 +3911,8 @@
     "fused-oracle": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.5,
-     "mrr": 0.3333333333333333
+     "ndcg": 1.0,
+     "mrr": 1.0
     }
    }
   },
@@ -4034,7 +3921,16 @@
    "family": "open",
    "text": "Child-process IPC cleanup creates an unhandled rejection when a request fails",
    "n_truth": 1,
-   "intent_model": {},
+   "intent_model": {
+    "platform": [
+     "prefer",
+     "linux"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
    "metrics": {
     "bm25": {
      "p": 0.1,
@@ -4079,16 +3975,7 @@
    "family": "open",
    "text": "Microphone picker shows when there's only one mic but shouldn't",
    "n_truth": 1,
-   "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ],
-    "platform": [
-     "prefer",
-     "macos"
-    ]
-   },
+   "intent_model": {},
    "metrics": {
     "bm25": {
      "p": 0.1,
@@ -4123,8 +4010,8 @@
     "fused-oracle": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.6309297535714575,
-     "mrr": 0.5
+     "ndcg": 1.0,
+     "mrr": 1.0
     }
    }
   },
@@ -4135,16 +4022,8 @@
    "n_truth": 1,
    "intent_model": {
     "kind": [
-     "filter",
+     "prefer",
      "feature"
-    ],
-    "platform": [
-     "prefer",
-     "macos"
-    ],
-    "regression": [
-     "prefer",
-     "yes"
     ]
    },
    "metrics": {
@@ -4191,12 +4070,7 @@
    "family": "open",
    "text": "Custom editor retains previous error on reopen even when it no longer applies",
    "n_truth": 1,
-   "intent_model": {
-    "platform": [
-     "prefer",
-     "macos"
-    ]
-   },
+   "intent_model": {},
    "metrics": {
     "bm25": {
      "p": 0.1,
@@ -4242,10 +4116,6 @@
    "text": "Entire window goes blank after a period of time",
    "n_truth": 1,
    "intent_model": {
-    "platform": [
-     "prefer",
-     "windows"
-    ],
     "regression": [
      "prefer",
      "yes"
@@ -4305,8 +4175,8 @@
    "n_truth": 1,
    "intent_model": {
     "platform": [
-     "prefer",
-     "macos"
+     "filter",
+     "linux"
     ]
    },
    "metrics": {
@@ -4331,8 +4201,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 1.0,
-     "mrr": 1.0
+     "ndcg": 0.43067655807339306,
+     "mrr": 0.25
     },
     "facets-oracle": {
      "p": 0.0,
@@ -4355,10 +4225,6 @@
    "n_truth": 1,
    "intent_model": {
     "regression": [
-     "prefer",
-     "yes"
-    ],
-    "has_repro": [
      "prefer",
      "yes"
     ]
@@ -4504,10 +4370,60 @@
    "n_truth": 1,
    "intent_model": {
     "kind": [
-     "filter",
+     "prefer",
+     "feature"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-54",
+   "family": "open",
+   "text": "Agents Window: Remove unified workspace picker flyout hover delay",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
      "feature"
     ],
-    "regression": [
+    "has_repro": [
      "prefer",
      "yes"
     ]
@@ -4534,62 +4450,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.5,
-     "mrr": 0.3333333333333333
-    },
-    "facets-oracle": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
-    },
-    "fused-oracle": {
-     "p": 0.1,
-     "r": 1.0,
      "ndcg": 1.0,
      "mrr": 1.0
-    }
-   }
-  },
-  {
-   "id": "open-54",
-   "family": "open",
-   "text": "Agents Window: Remove unified workspace picker flyout hover delay",
-   "n_truth": 1,
-   "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ],
-    "platform": [
-     "prefer",
-     "windows"
-    ]
-   },
-   "metrics": {
-    "bm25": {
-     "p": 0.1,
-     "r": 1.0,
-     "ndcg": 1.0,
-     "mrr": 1.0
-    },
-    "dense": {
-     "p": 0.1,
-     "r": 1.0,
-     "ndcg": 1.0,
-     "mrr": 1.0
-    },
-    "facets": {
-     "p": 0.0,
-     "r": 0.0,
-     "ndcg": 0.0,
-     "mrr": 0.0
-    },
-    "fused": {
-     "p": 0.1,
-     "r": 1.0,
-     "ndcg": 0.43067655807339306,
-     "mrr": 0.25
     },
     "facets-oracle": {
      "p": 0.0,
@@ -4611,9 +4473,9 @@
    "text": "Combined permission and mode picker loses its background in dark themes",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
+    "platform": [
+     "prefer",
+     "any"
     ]
    },
    "metrics": {
@@ -4638,8 +4500,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.5,
-     "mrr": 0.3333333333333333
+     "ndcg": 1.0,
+     "mrr": 1.0
     },
     "facets-oracle": {
      "p": 0.0,
@@ -4662,12 +4524,8 @@
    "n_truth": 1,
    "intent_model": {
     "kind": [
-     "filter",
-     "feature"
-    ],
-    "platform": [
-     "filter",
-     "macos"
+     "prefer",
+     "question"
     ]
    },
    "metrics": {
@@ -4692,8 +4550,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.43067655807339306,
-     "mrr": 0.25
+     "ndcg": 1.0,
+     "mrr": 1.0
     },
     "facets-oracle": {
      "p": 0.0,
@@ -4715,10 +4573,6 @@
    "text": "Edits open really big tabs",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "filter",
-     "feature"
-    ],
     "regression": [
      "prefer",
      "yes"
@@ -4750,8 +4604,8 @@
     "fused": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.38685280723454163,
-     "mrr": 0.2
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
     },
     "facets-oracle": {
      "p": 0.0,
@@ -4762,8 +4616,8 @@
     "fused-oracle": {
      "p": 0.1,
      "r": 1.0,
-     "ndcg": 0.38685280723454163,
-     "mrr": 0.2
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
     }
    }
   },
@@ -4772,7 +4626,12 @@
    "family": "open",
    "text": "Wrong link color in plan widget",
    "n_truth": 1,
-   "intent_model": {},
+   "intent_model": {
+    "regression": [
+     "prefer",
+     "yes"
+    ]
+   },
    "metrics": {
     "bm25": {
      "p": 0.0,
@@ -4818,13 +4677,9 @@
    "text": "'Updating' badge on titlebar gearwheel is not circular",
    "n_truth": 1,
    "intent_model": {
-    "kind": [
-     "prefer",
-     "bug"
-    ],
     "platform": [
      "prefer",
-     "windows"
+     "linux"
     ]
    },
    "metrics": {
@@ -4872,9 +4727,9 @@
    "text": "Agents renderer OOM: unbounded workspaceFileCount telemetry search materializes every file",
    "n_truth": 1,
    "intent_model": {
-    "regression": [
+    "platform": [
      "prefer",
-     "yes"
+     "linux"
     ]
    },
    "metrics": {
