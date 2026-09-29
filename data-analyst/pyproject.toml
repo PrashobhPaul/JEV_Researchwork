@@ -1,0 +1,17 @@
+[project]
+name = "data-analyst"
+version = "0.1.0"
+description = "A self-driving data analyst on open models, scored against planted root causes"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = []
+
+[project.optional-dependencies]
+models = ["torch", "transformers>=4.45", "accelerate"]
+
+[tool.setuptools.packages.find]
+include = ["analyst*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

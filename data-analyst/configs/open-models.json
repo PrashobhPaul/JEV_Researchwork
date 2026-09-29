@@ -1,0 +1,7 @@
+{
+  "name": "open-models",
+  "planner": {"backend": "transformers", "model": "Qwen/Qwen2.5-1.5B-Instruct"},
+  "coder": {"backend": "transformers", "model": "Qwen/Qwen2.5-Coder-0.5B-Instruct"},
+  "max_steps": 6,
+  "seed": 7
+}

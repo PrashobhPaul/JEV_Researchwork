@@ -1,0 +1,637 @@
+{
+ "meta": {
+  "name": "open-models",
+  "planner": "Qwen/Qwen2.5-1.5B-Instruct",
+  "coder": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+  "max_steps": 6,
+  "seed": 7,
+  "run_at": "2026-09-29 17:00 UTC",
+  "runner": "Linux / 4 cpu"
+ },
+ "n": 7,
+ "summary": {
+  "baseline": {
+   "exact": 5,
+   "overlap": 0.786
+  },
+  "agent": {
+   "exact": 1,
+   "overlap": 0.143
+  }
+ },
+ "scenarios": [
+  {
+   "scenario": "region_closure",
+   "effect": "West stores lost 70% of orders (closures)",
+   "truth": [
+    {
+     "dimension": "region",
+     "value": "West"
+    }
+   ],
+   "baseline": {
+    "root_cause": [
+     {
+      "dimension": "region",
+      "value": "West"
+     }
+    ],
+    "exact": true,
+    "overlap": 1.0
+   },
+   "agent": {
+    "root_cause": [],
+    "exact": false,
+    "overlap": 0.0,
+    "concluded": false,
+    "steps": 6,
+    "sql_errors": 1,
+    "usage": {
+     "planner": {
+      "calls": 7,
+      "input_tokens": 7286,
+      "output_tokens": 1618
+     },
+     "coder": {
+      "calls": 7,
+      "input_tokens": 3421,
+      "output_tokens": 296
+     }
+    },
+    "minutes": 7.3,
+    "explanation": "The decline in revenue was not explained by an increase in the number of orders, but rather by an increase in the total revenue.",
+    "hypotheses": [
+     {
+      "text": "The decline in revenue from 2026-04-27 to 2026-06-21 compared to 2026-03-02 to 2026-04-26 is due to an increase in the number of orders.",
+      "status": "rejected"
+     }
+    ],
+    "trace": [
+     {
+      "check": "Check if there's an increase in the number of orders during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(units) - SUM(units_before) AS increase FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "ERROR: no such column: units_before",
+      "error": true
+     },
+     {
+      "check": "Check if there's an increase in the average order value during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT AVG(unit_price) - AVG(unit_price) FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "AVG(unit_price) - AVG(unit_price)\n0.00",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n874,088.40",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n874,088.40",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n874,088.40",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n874,088.40",
+      "error": false
+     }
+    ]
+   }
+  },
+  {
+   "scenario": "price_increase",
+   "effect": "Electronics prices +40%, units per order down 60%",
+   "truth": [
+    {
+     "dimension": "category",
+     "value": "Electronics"
+    }
+   ],
+   "baseline": {
+    "root_cause": [
+     {
+      "dimension": "category",
+      "value": "Electronics"
+     }
+    ],
+    "exact": true,
+    "overlap": 1.0
+   },
+   "agent": {
+    "root_cause": [],
+    "exact": false,
+    "overlap": 0.0,
+    "concluded": false,
+    "steps": 6,
+    "sql_errors": 1,
+    "usage": {
+     "planner": {
+      "calls": 7,
+      "input_tokens": 7286,
+      "output_tokens": 1618
+     },
+     "coder": {
+      "calls": 7,
+      "input_tokens": 3421,
+      "output_tokens": 296
+     }
+    },
+    "minutes": 7.1,
+    "explanation": "The decline in revenue was not explained by an increase in the number of orders, but rather by an increase in the total revenue.",
+    "hypotheses": [
+     {
+      "text": "The decline in revenue from 2026-04-27 to 2026-06-21 compared to 2026-03-02 to 2026-04-26 is due to an increase in the number of orders.",
+      "status": "rejected"
+     }
+    ],
+    "trace": [
+     {
+      "check": "Check if there's an increase in the number of orders during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(units) - SUM(units_before) AS increase FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "ERROR: no such column: units_before",
+      "error": true
+     },
+     {
+      "check": "Check if there's an increase in the average order value during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT AVG(unit_price) - AVG(unit_price) FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "AVG(unit_price) - AVG(unit_price)\n0.00",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n815,712.61",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n815,712.61",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n815,712.61",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n815,712.61",
+      "error": false
+     }
+    ]
+   }
+  },
+  {
+   "scenario": "channel_outage",
+   "effect": "the online channel lost 85% of orders (checkout outage)",
+   "truth": [
+    {
+     "dimension": "channel",
+     "value": "Online"
+    }
+   ],
+   "baseline": {
+    "root_cause": [
+     {
+      "dimension": "channel",
+      "value": "Online"
+     }
+    ],
+    "exact": true,
+    "overlap": 1.0
+   },
+   "agent": {
+    "root_cause": [],
+    "exact": false,
+    "overlap": 0.0,
+    "concluded": false,
+    "steps": 6,
+    "sql_errors": 1,
+    "usage": {
+     "planner": {
+      "calls": 7,
+      "input_tokens": 7286,
+      "output_tokens": 1634
+     },
+     "coder": {
+      "calls": 7,
+      "input_tokens": 3421,
+      "output_tokens": 296
+     }
+    },
+    "minutes": 7.2,
+    "explanation": "The decline in revenue was not explained by an increase in the number of orders, but rather by an increase in the total revenue.",
+    "hypotheses": [
+     {
+      "text": "The decline in revenue from 2026-04-27 to 2026-06-21 compared to 2026-03-02 to 2026-04-26 is due to an increase in the number of orders.",
+      "status": "rejected"
+     }
+    ],
+    "trace": [
+     {
+      "check": "Check if there's an increase in the number of orders during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(units) - SUM(units_before) AS increase FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "ERROR: no such column: units_before",
+      "error": true
+     },
+     {
+      "check": "Check if there's an increase in the average order value during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT AVG(unit_price) - AVG(unit_price) FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "AVG(unit_price) - AVG(unit_price)\n0.00",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n701,712.43",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n701,712.43",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n701,712.43",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n701,712.43",
+      "error": false
+     }
+    ]
+   }
+  },
+  {
+   "scenario": "wholesale_churn",
+   "effect": "wholesale customers placed 75% fewer orders",
+   "truth": [
+    {
+     "dimension": "customer_type",
+     "value": "Wholesale"
+    }
+   ],
+   "baseline": {
+    "root_cause": [
+     {
+      "dimension": "customer_type",
+      "value": "Wholesale"
+     }
+    ],
+    "exact": true,
+    "overlap": 1.0
+   },
+   "agent": {
+    "root_cause": [],
+    "exact": false,
+    "overlap": 0.0,
+    "concluded": false,
+    "steps": 6,
+    "sql_errors": 1,
+    "usage": {
+     "planner": {
+      "calls": 7,
+      "input_tokens": 7286,
+      "output_tokens": 1634
+     },
+     "coder": {
+      "calls": 7,
+      "input_tokens": 3421,
+      "output_tokens": 296
+     }
+    },
+    "minutes": 7.2,
+    "explanation": "The decline in revenue was not explained by an increase in the number of orders, but rather by an increase in the total revenue.",
+    "hypotheses": [
+     {
+      "text": "The decline in revenue from 2026-04-27 to 2026-06-21 compared to 2026-03-02 to 2026-04-26 is due to an increase in the number of orders.",
+      "status": "rejected"
+     }
+    ],
+    "trace": [
+     {
+      "check": "Check if there's an increase in the number of orders during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(units) - SUM(units_before) AS increase FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "ERROR: no such column: units_before",
+      "error": true
+     },
+     {
+      "check": "Check if there's an increase in the average order value during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT AVG(unit_price) - AVG(unit_price) FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "AVG(unit_price) - AVG(unit_price)\n0.00",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n594,529.36",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n594,529.36",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n594,529.36",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n594,529.36",
+      "error": false
+     }
+    ]
+   }
+  },
+  {
+   "scenario": "stockout",
+   "effect": "the best-selling electronics product went out of stock",
+   "truth": [
+    {
+     "dimension": "product",
+     "value": "ELE-01"
+    }
+   ],
+   "baseline": {
+    "root_cause": [
+     {
+      "dimension": "product",
+      "value": "ELE-01"
+     }
+    ],
+    "exact": true,
+    "overlap": 1.0
+   },
+   "agent": {
+    "root_cause": [],
+    "exact": false,
+    "overlap": 0.0,
+    "concluded": false,
+    "steps": 6,
+    "sql_errors": 1,
+    "usage": {
+     "planner": {
+      "calls": 7,
+      "input_tokens": 7286,
+      "output_tokens": 1634
+     },
+     "coder": {
+      "calls": 7,
+      "input_tokens": 3421,
+      "output_tokens": 296
+     }
+    },
+    "minutes": 7.1,
+    "explanation": "The decline in revenue was not explained by an increase in the number of orders, but rather by an increase in the total revenue.",
+    "hypotheses": [
+     {
+      "text": "The decline in revenue from 2026-04-27 to 2026-06-21 compared to 2026-03-02 to 2026-04-26 is due to an increase in the number of orders.",
+      "status": "rejected"
+     }
+    ],
+    "trace": [
+     {
+      "check": "Check if there's an increase in the number of orders during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(units) - SUM(units_before) AS increase FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "ERROR: no such column: units_before",
+      "error": true
+     },
+     {
+      "check": "Check if there's an increase in the average order value during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT AVG(unit_price) - AVG(unit_price) FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "AVG(unit_price) - AVG(unit_price)\n0.00",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n816,891.88",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n816,891.88",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n816,891.88",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n816,891.88",
+      "error": false
+     }
+    ]
+   }
+  },
+  {
+   "scenario": "interaction",
+   "effect": "online orders in the West dropped 90% (a regional payment-provider failure)",
+   "truth": [
+    {
+     "dimension": "region",
+     "value": "West"
+    },
+    {
+     "dimension": "channel",
+     "value": "Online"
+    }
+   ],
+   "baseline": {
+    "root_cause": [
+     {
+      "dimension": "region",
+      "value": "West"
+     }
+    ],
+    "exact": false,
+    "overlap": 0.5
+   },
+   "agent": {
+    "root_cause": [],
+    "exact": false,
+    "overlap": 0.0,
+    "concluded": false,
+    "steps": 6,
+    "sql_errors": 1,
+    "usage": {
+     "planner": {
+      "calls": 7,
+      "input_tokens": 7306,
+      "output_tokens": 1618
+     },
+     "coder": {
+      "calls": 7,
+      "input_tokens": 3421,
+      "output_tokens": 296
+     }
+    },
+    "minutes": 7.1,
+    "explanation": "The decline in revenue was not explained by an increase in the number of orders, but rather by an increase in the total revenue.",
+    "hypotheses": [
+     {
+      "text": "The decline in revenue from 2026-04-27 to 2026-06-21 compared to 2026-03-02 to 2026-04-26 is due to an increase in the number of orders.",
+      "status": "rejected"
+     }
+    ],
+    "trace": [
+     {
+      "check": "Check if there's an increase in the number of orders during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(units) - SUM(units_before) AS increase FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "ERROR: no such column: units_before",
+      "error": true
+     },
+     {
+      "check": "Check if there's an increase in the average order value during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT AVG(unit_price) - AVG(unit_price) FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "AVG(unit_price) - AVG(unit_price)\n0.00",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n1,021,096.99",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n1,021,096.99",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n1,021,096.99",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n1,021,096.99",
+      "error": false
+     }
+    ]
+   }
+  },
+  {
+   "scenario": "broad_decline",
+   "effect": "orders fell ~25% evenly across every slice (market-wide demand drop)",
+   "truth": [],
+   "baseline": {
+    "root_cause": [
+     {
+      "dimension": "customer_type",
+      "value": "Wholesale"
+     }
+    ],
+    "exact": false,
+    "overlap": 0.0
+   },
+   "agent": {
+    "root_cause": [],
+    "exact": true,
+    "overlap": 1.0,
+    "concluded": false,
+    "steps": 6,
+    "sql_errors": 1,
+    "usage": {
+     "planner": {
+      "calls": 7,
+      "input_tokens": 7286,
+      "output_tokens": 1577
+     },
+     "coder": {
+      "calls": 7,
+      "input_tokens": 3421,
+      "output_tokens": 296
+     }
+    },
+    "minutes": 6.9,
+    "explanation": "The decline in revenue was not explained by an increase in the number of orders, but rather by an increase in the total revenue.",
+    "hypotheses": [
+     {
+      "text": "The decline in revenue from 2026-04-27 to 2026-06-21 compared to 2026-03-02 to 2026-04-26 is due to an increase in the number of orders.",
+      "status": "rejected"
+     }
+    ],
+    "trace": [
+     {
+      "check": "Check if there's an increase in the number of orders during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(units) - SUM(units_before) AS increase FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "ERROR: no such column: units_before",
+      "error": true
+     },
+     {
+      "check": "Check if there's an increase in the average order value during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT AVG(unit_price) - AVG(unit_price) FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "AVG(unit_price) - AVG(unit_price)\n0.00",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n816,901.46",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n816,901.46",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n816,901.46",
+      "error": false
+     },
+     {
+      "check": "Check if there's an increase in the total revenue during the period from 2026-04-27 to 2026-06-21 compared to the same period in 2026-03-02 to 2026-04-26.",
+      "sql": "SELECT SUM(revenue) AS total_revenue FROM orders WHERE order_date BETWEEN '2026-04-27' AND '2026-06-21'",
+      "result": "total_revenue\n816,901.46",
+      "error": false
+     }
+    ]
+   }
+  }
+ ],
+ "usage": {
+  "planner": {
+   "calls": 49,
+   "input_tokens": 51022,
+   "output_tokens": 11333
+  },
+  "coder": {
+   "calls": 49,
+   "input_tokens": 23947,
+   "output_tokens": 2072
+  }
+ }
+}
