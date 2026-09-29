@@ -36,7 +36,7 @@ def test_laya_adapter_round_trip(monkeypatch):
 
     assert loaded == {"model": "convaiinnovations/laya", "device": "cpu", "subfolder": None,
                       "revision": _FakeAgent.revision}
-    assert m.name == "laya:english@55cf4c4"
+    assert m.name.startswith("laya:english@55cf4c4+d")
     state, sent = agent.calls[0]
     assert state == "editor crashes on paste"
     assert sent["kind"] == {"type": "choice", "instructions": "What kind of issue?",
@@ -51,7 +51,15 @@ def test_laya_name_separates_other_repos(monkeypatch):
     default = LayaModel(LayaConfig(revision=_FakeAgent.revision))
     other = LayaModel(LayaConfig(model_name="someone/laya-finetune", revision=_FakeAgent.revision))
     unpinned = LayaModel(LayaConfig(model_name="someone/laya-finetune"))
-    assert default.name == "laya:english@55cf4c4"  # unchanged: the committed answer cache stays valid
+    assert default.name == "laya:english@55cf4c4"  # the default repo is not spelled out
     assert other.name == "laya[someone/laya-finetune]:english@55cf4c4"
     assert unpinned.name == "laya[someone/laya-finetune]:english@unpinned"
     assert len({default.name, other.name, unpinned.name}) == 3
+
+
+def test_laya_name_tracks_descriptions(monkeypatch):
+    monkeypatch.setitem(sys.modules, "laya", types.SimpleNamespace(load=lambda *a, **k: types.SimpleNamespace()))
+    a = LayaModel(LayaConfig(revision=_FakeAgent.revision, descriptions={"kind": {"bug": "broken"}}))
+    b = LayaModel(LayaConfig(revision=_FakeAgent.revision, descriptions={"kind": {"bug": "something is broken"}}))
+    a2 = LayaModel(LayaConfig(revision=_FakeAgent.revision, descriptions={"kind": {"bug": "broken"}}))
+    assert a.name != b.name and a.name == a2.name

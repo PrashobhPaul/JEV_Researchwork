@@ -15,6 +15,8 @@ after the question head. A second cap here would either repeat that cut or chang
 adapter passes the full state and records the rule in `describe()`."""
 from __future__ import annotations
 
+import hashlib
+import json
 from dataclasses import dataclass, field
 
 from ..schema import Answer, Question
@@ -45,7 +47,12 @@ class LayaModel:
         # The name is the answer-cache key, so it must change whenever the loaded weights can.
         # Any repo other than the default is spelled out; the default keeps its short name.
         repo = "" if self.cfg.model_name == DEFAULT_REPO else f"[{self.cfg.model_name}]"
-        self.name = f"laya{repo}:{self.cfg.subfolder or 'english'}@{rev}"
+        # The option descriptions are part of Laya's input but not of the question fingerprint.
+        desc = ""
+        if self.cfg.descriptions:
+            blob = json.dumps(self.cfg.descriptions, sort_keys=True, ensure_ascii=False)
+            desc = "+d" + hashlib.sha1(blob.encode()).hexdigest()[:8]
+        self.name = f"laya{repo}:{self.cfg.subfolder or 'english'}@{rev}{desc}"
 
     def evaluate(self, state: str, questions: list[Question]) -> dict[str, Answer]:
         raw = self.agent.system_one(state.strip() or "(empty)", to_systemone(questions, self.cfg.descriptions))
