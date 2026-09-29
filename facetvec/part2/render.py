@@ -17,6 +17,7 @@ Every number in the outputs comes from results.json; nothing is typed by hand.
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 import shutil
@@ -42,6 +43,11 @@ NAMES = {
 def load(name: str) -> dict | None:
     p = ROOT / "data" / name / "results.json"
     return json.loads(p.read_text()) if p.exists() else None
+
+
+def esc(text: str) -> str:
+    """Issue titles and queries come from GitHub; never let them become markup in a template."""
+    return html.escape(str(text), quote=True)
 
 
 def f3(x: float) -> str:
@@ -75,12 +81,12 @@ def facet_rows(res: dict) -> str:
     rows = []
     if ex and ex[0]["top"]:
         for b in ex[0]["top"][0]["because"][:6]:
-            rows.append(f'<div class="row"><span class="k">{b["facet"]}</span><span class="bar"><i style="width:{int(b["p"]*100)}%"></i></span><span class="v">{b["option"]} {b["p"]:.2f}</span></div>')
+            rows.append(f'<div class="row"><span class="k">{esc(b["facet"])}</span><span class="bar"><i style="width:{int(b["p"]*100)}%"></i></span><span class="v">{esc(b["option"])} {b["p"]:.2f}</span></div>')
     for name in list(res["label_accuracy"].keys())[:6]:
         if len(rows) >= 6:
             break
-        if not any(name in r for r in rows):
-            rows.append(f'<div class="row"><span class="k">{name}</span><span class="bar"><i style="width:0%"></i></span><span class="v">—</span></div>')
+        if not any(f'<span class="k">{esc(name)}</span>' in r for r in rows):
+            rows.append(f'<div class="row"><span class="k">{esc(name)}</span><span class="bar"><i style="width:0%"></i></span><span class="v">—</span></div>')
     return "\n".join(rows)
 
 
@@ -171,12 +177,12 @@ def matched_html(pri: dict, ctx: dict) -> str:
         items = []
         for t in ex["top"]:
             chips = "".join(
-                f'<span class="chip {b["mode"]}">{b["facet"]} = {b["option"]} <b>{b["p"]:.2f}</b></span>' for b in t["because"]
+                f'<span class="chip {esc(b["mode"])}">{esc(b["facet"])} = {esc(b["option"])} <b>{b["p"]:.2f}</b></span>' for b in t["because"]
             )
             mark = "✓" if t["in_truth"] else "✗"
-            title = t["title"] + ("…" if len(t["title"]) >= 90 else "")  # results.json keeps 90 chars
+            title = esc(t["title"]) + ("…" if len(t["title"]) >= 90 else "")  # results.json keeps 90 chars
             items.append(f'<div class="item"><div class="t"><span class="m {"y" if t["in_truth"] else "n"}">{mark}</span> #{t["id"]} {title}</div><div class="chips">{chips}</div></div>')
-        cards.append(f'<div class="q">query: <b>{ex["query"]}</b></div>' + "".join(items))
+        cards.append(f'<div class="q">query: <b>{esc(ex["query"])}</b></div>' + "".join(items))
     return fill((TPL / "matched_because.html").read_text(), {**ctx, "cards": "\n".join(cards)})
 
 
