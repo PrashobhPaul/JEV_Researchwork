@@ -44,3 +44,14 @@ def test_laya_adapter_round_trip(monkeypatch):
     assert sent["crash"] == {"type": "noul", "instructions": "This reports a crash."}
     assert out["kind"].probs == {"bug": 0.8, "feature": 0.2}
     assert abs(out["crash"].probs["yes"] - 0.7) < 1e-9
+
+
+def test_laya_name_separates_other_repos(monkeypatch):
+    monkeypatch.setitem(sys.modules, "laya", types.SimpleNamespace(load=lambda *a, **k: types.SimpleNamespace()))
+    default = LayaModel(LayaConfig(revision=_FakeAgent.revision))
+    other = LayaModel(LayaConfig(model_name="someone/laya-finetune", revision=_FakeAgent.revision))
+    unpinned = LayaModel(LayaConfig(model_name="someone/laya-finetune"))
+    assert default.name == "laya:english@55cf4c4"  # unchanged: the committed answer cache stays valid
+    assert other.name == "laya[someone/laya-finetune]:english@55cf4c4"
+    assert unpinned.name == "laya[someone/laya-finetune]:english@unpinned"
+    assert len({default.name, other.name, unpinned.name}) == 3
