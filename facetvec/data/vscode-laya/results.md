@@ -1,5 +1,5 @@
 **Corpus:** microsoft/vscode — 400 real issues, labelled with 6 questions. 
-**Decision model:** laya:english@55cf4c4. **Dense model:** BAAI/bge-small-en-v1.5. **Run:** 2026-09-29 17:16 UTC on Linux / 4 cpu.
+**Decision model:** laya:english@55cf4c4+dc5fafc03. **Dense model:** BAAI/bge-small-en-v1.5. **Run:** 2026-09-29 17:28 UTC on Linux / 4 cpu.
 
 | System | typed P@10 | typed R@10 | typed nDCG@10 | open R@10 | open MRR@10 |
 |---|---:|---:|---:|---:|---:|
@@ -35,4 +35,4 @@
   - ✗ #205598 Invoking deltaDecorations recursively could lead to leaking decorations. — kind=debt (0.15)
   - ✓ #329042 Harden PowerShell terminal auto-approval parsing and default rules — kind=debt (0.57)
 
-Timing: labelling 67.5 min for 400 records; decision cache 2880 entries; model calls this run 480.
+Timing: labelling 0.0 min for 400 records; decision cache 2880 entries; model calls this run 0.
