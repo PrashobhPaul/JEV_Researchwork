@@ -53,6 +53,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run the evaluation
+        id: eval
+        # leaves time for the commit step, which saves the answer cache even if labelling runs long
+        timeout-minutes: 270
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TOKENIZERS_PARALLELISM: "false"
@@ -62,15 +65,24 @@ jobs:
             ${{ inputs.refresh && '--refresh' || '' }}
 
       - name: Commit results
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data README.md
-          git commit -m "eval: $(date -u +%Y-%m-%dT%H:%MZ) ${{ inputs.config }} ${{ inputs.max_records }} records" || echo "nothing to commit"
+          if [ "${{ steps.eval.outcome }}" = "success" ]; then
+            git add data README.md
+            msg="eval: $(date -u +%Y-%m-%dT%H:%MZ) ${{ inputs.config }} ${{ inputs.max_records }} records"
+          else
+            # only the answer cache, so a re-run resumes where this one stopped; no partial results
+            git add data/*/decisions.sqlite
+            msg="eval (${{ steps.eval.outcome }}, answer cache only): $(date -u +%Y-%m-%dT%H:%MZ) ${{ inputs.config }}"
+          fi
+          git commit -m "$msg" || echo "nothing to commit"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push
 
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: results
           path: |
