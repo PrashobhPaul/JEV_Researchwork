@@ -48,6 +48,10 @@ def f3(x: float) -> str:
     return f"{x:.3f}"
 
 
+def pct(x: float) -> str:
+    return f"{x * 100:.0f}%"
+
+
 def result_rows(res: dict) -> str:
     s = res["summary"]
     rows = []
@@ -142,9 +146,15 @@ def context(pri: dict, sec: dict | None, repo_url: str) -> dict:
         "secondary_typed_ndcg": f3(sec["summary"]["facets"]["typed"]["ndcg"]) if sec else "n/a",
         "bm25_open_mrr": f3(s["bm25"]["open"]["mrr"]),
         "secondary_fused_typed_ndcg": f3(sec["summary"]["fused"]["typed"]["ndcg"]) if sec else "n/a",
+        "secondary_encoder_acc": f3(sec["query_encoder_accuracy"] or 0.0) if sec else "n/a",
+        "secondary_kind_acc": f3(sec["label_accuracy"].get("kind", {}).get("accuracy", 0.0)) if sec else "n/a",
         "area_acc": f3(pri["label_accuracy"].get("area", {}).get("accuracy", 0.0)),
         "area_majority": f3(pri["label_accuracy"].get("area", {}).get("majority_baseline", 0.0)),
         "kind_acc": f3(pri["label_accuracy"].get("kind", {}).get("accuracy", 0.0)),
+        "area_acc_pct": pct(pri["label_accuracy"].get("area", {}).get("accuracy", 0.0)),
+        "encoder_acc_pct": pct(pri["query_encoder_accuracy"] or 0.0),
+        "secondary_encoder_acc_pct": pct(sec["query_encoder_accuracy"] or 0.0) if sec else "n/a",
+        "secondary_kind_acc_pct": pct(sec["label_accuracy"].get("kind", {}).get("accuracy", 0.0)) if sec else "n/a",
         "kind_majority": f3(pri["label_accuracy"].get("kind", {}).get("majority_baseline", 0.0)),
         "example_query": (pri["examples"][0]["query"] if pri.get("examples") else ""),
         "example_because": (", ".join(f'{b["facet"]}={b["option"]} ({b["p"]:.2f})' for b in pri["examples"][0]["top"][0]["because"]) if pri.get("examples") else ""),
