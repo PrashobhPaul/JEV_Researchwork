@@ -62,6 +62,31 @@ adequate model. This is a fresh implementation with two changes that matter here
 
 The numbers above are written by the `data-analyst-evaluate` workflow; nothing is typed by hand.
 
+### Reading these two runs
+
+**The agent loses to the no-model baseline in both runs, and its one ✓ is not a win.** In every
+scenario of both runs the planner never concluded on its own: the budget forced the conclusion, and
+the forced answer was `[]` ("broad-based") all 14 times. That default happens to be the planted
+answer for `broad_decline`, so it scores there. That is luck, not analysis.
+
+The traces (`results/*.json`, field `trace`) show *where* each run fails, and the two runs fail in
+different places:
+
+* **1.5B planner: the planner doesn't investigate.** It plans the same three whole-table checks in
+  every scenario, repeats the last one until the budget runs out, and never asks for a breakdown by
+  any dimension (0 of 42 queries use `GROUP BY`).
+* **3B planner: the planner investigates, and the coder's answers are unreadable.** It plans six
+  distinct checks per scenario: total revenue, then revenue before vs after by region, channel,
+  category, product and customer type (35 `GROUP BY` queries, 0 SQL errors). But the 0.5B coder
+  writes every two-period comparison as `… GROUP BY region UNION … GROUP BY region`, with no column
+  saying which period a row belongs to (28 of 28 two-period queries). The planner receives pairs
+  like `West | 80,022 / West | 275,974` without knowing which is "before", and concludes that no
+  slice stands out.
+
+So planner size fixed the first bottleneck and exposed the second. The obvious next experiments
+are a larger coder, or a coder prompt that asks for one row per group with a column per period.
+Neither is run here; either would need its own run and its own row above.
+
 ## The benchmark
 
 Seven scenarios share one seasonal baseline — 16 weeks of orders across region, channel, category,
