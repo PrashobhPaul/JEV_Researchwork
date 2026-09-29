@@ -78,7 +78,8 @@ jobs:
             msg="eval (${{ steps.eval.outcome }}, answer cache only): $(date -u +%Y-%m-%dT%H:%MZ) ${{ inputs.config }}"
           fi
           git commit -m "$msg" || echo "nothing to commit"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
+          # autostash: on a failed run, outputs other than the cache stay unstaged and would block the rebase
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
           git push
 
       - uses: actions/upload-artifact@v4
