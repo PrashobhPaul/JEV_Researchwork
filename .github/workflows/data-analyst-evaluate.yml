@@ -1,0 +1,75 @@
+name: data-analyst-evaluate
+
+on:
+  workflow_dispatch:
+    inputs:
+      config:
+        description: "Model config"
+        default: "configs/open-models.json"
+        required: true
+      scenarios:
+        description: "Comma-separated scenarios (empty = all)"
+        default: ""
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-analyst-evaluate
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    defaults:
+      run:
+        working-directory: data-analyst
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: data-analyst/requirements.txt
+
+      - name: Cache Hugging Face models
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-da-${{ hashFiles('data-analyst/configs/**') }}
+          restore-keys: hf-da-
+
+      - name: Install (CPU-only torch)
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt
+
+      - name: Run the evaluation
+        id: eval
+        timeout-minutes: 280
+        env:
+          TOKENIZERS_PARALLELISM: "false"
+        run: |
+          args=(--config "${{ inputs.config }}")
+          if [ -n "${{ inputs.scenarios }}" ]; then args+=(--scenarios "${{ inputs.scenarios }}"); fi
+          python -m analyst "${args[@]}"
+
+      - name: Commit results
+        if: steps.eval.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results README.md
+          git commit -m "data-analyst eval: $(date -u +%Y-%m-%dT%H:%MZ) ${{ inputs.config }}" || echo "nothing to commit"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          git push
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: data-analyst-results
+          path: data-analyst/results/
