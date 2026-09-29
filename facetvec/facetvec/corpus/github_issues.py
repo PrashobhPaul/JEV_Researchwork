@@ -141,6 +141,22 @@ def normalise(raw: list[dict], cfg: dict) -> list[Record]:
     return recs
 
 
+def reapply_oracle(recs: list[Record], cfg: dict) -> tuple[list[Record], int]:
+    """Re-derive oracle facets from each record's stored labels with the current config, so a
+    corrected label mapping takes effect without re-fetching (and changing) the snapshot.
+    Returns the records that still have every required facet, and how many oracles changed."""
+    out: list[Record] = []
+    changed = 0
+    for r in recs:
+        oracle = _oracle_for(r.labels, cfg["oracle"])
+        if oracle is None:
+            continue
+        changed += oracle != r.oracle
+        r.oracle = oracle
+        out.append(r)
+    return out, changed
+
+
 def balance(recs: list[Record], facet: str, max_records: int, seed: int = 7) -> list[Record]:
     """Cap the corpus at max_records while keeping every option of `facet` represented in proportion,
     with a floor so rare options are not squeezed out."""

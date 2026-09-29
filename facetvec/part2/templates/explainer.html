@@ -1,0 +1,136 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:1500px;overflow:hidden;background:#f5f7fb;font-family:Inter,system-ui,sans-serif;color:#0f1e3a}
+#c{position:relative;width:1200px;height:1500px}
+.abs{position:absolute}
+.mono{font-family:'JetBrains Mono',monospace}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:#5b6b85;font-weight:600}
+h1{font-size:54px;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+h1 span{color:#1f8f5f}
+.sub{font-size:19px;color:#3d4c66;line-height:1.4;max-width:940px;margin-top:12px}
+.panel{position:absolute;background:#fff;border:1.5px solid #dfe5ef;border-radius:14px}
+.panel .ph{position:absolute;left:22px;top:18px;font-size:20px;font-weight:800}
+.panel .pt{position:absolute;left:22px;top:46px;font-size:13.5px;color:#5b6b85}
+.tag{position:absolute;right:18px;top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;padding:4px 9px;border-radius:999px;border:1px solid}
+.tag.g{color:#1f8f5f;border-color:#bfe3d0;background:#eaf7ef}.tag.b{color:#2f6fe0;border-color:#c9daf7;background:#eef3fd}
+.numbers{position:absolute;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.7;color:#8a97ab;word-break:normal;overflow-wrap:normal}
+.row{display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;margin:2px 0}
+.row .k{width:150px;color:#0f1e3a}.row .bar{flex:1;height:9px;background:#eef1f6;border-radius:5px;overflow:hidden;margin:0 10px}
+.row .bar i{display:block;height:100%;background:#1f8f5f;border-radius:5px}
+.row .bar.o i{background:#f59e0b}.row .bar.b i{background:#2f6fe0}
+.row .v{width:84px;text-align:right;color:#3d4c66;white-space:nowrap}
+.box{position:absolute;background:#fff;border:1.5px solid #c9d3e3;border-radius:9px;font-size:13.5px;font-weight:600;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6px 10px;line-height:1.25}
+.box.g{border-color:#1f8f5f;background:#f1faf5}.box.b{border-color:#2f6fe0;background:#f2f6fe}.box.d{border-style:dashed;color:#5b6b85;font-weight:500}
+.box small{display:block;font-size:11px;font-weight:500;color:#5b6b85;margin-top:2px}
+.stage{position:absolute;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:#8a97ab;font-weight:600}
+.diamond{position:absolute;width:64px;height:64px;transform:rotate(45deg);background:#eaf7ef;border:2px solid #1f8f5f;border-radius:9px}
+.dl{position:absolute;width:150px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#1f8f5f;font-weight:600;line-height:1.35}
+table{position:absolute;border-collapse:collapse;font-size:14px;background:#fff;border:1.5px solid #dfe5ef;border-radius:12px;overflow:hidden}
+th,td{padding:9px 14px;text-align:right;border-bottom:1px solid #eef1f6}
+th{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#5b6b85;font-weight:600;background:#fafbfd}
+td:first-child,th:first-child{text-align:left}
+td.n{font-family:'JetBrains Mono',monospace}
+tr.win td{background:#f1faf5;font-weight:700}tr.lose td{background:#fff7f7}
+.note{position:absolute;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#5b6b85;line-height:1.5}
+.list{position:absolute;background:#fff;border:1.5px solid #dfe5ef;border-radius:14px;padding:14px 22px}
+.list.g{background:#f1faf5;border-color:#bfe3d0}.list.b{background:#f2f6fe;border-color:#c9daf7}
+.list h3{font-size:17px;font-weight:800;margin-bottom:8px}
+.list li{list-style:none;font-size:13.5px;line-height:1.4;margin:4px 0;padding-left:20px;position:relative}
+.list li:before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;border-radius:50%;background:#1f8f5f}
+.list.b li:before{background:#2f6fe0}
+.foot{position:absolute;left:40px;bottom:18px;right:40px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:12px;color:#8a97ab}
+svg{position:absolute;left:0;top:0;pointer-events:none}
+</style></head><body><div id="c">
+
+<div class="abs" style="left:40px;top:38px"><div class="eyebrow">DECISION MODELS × ENTERPRISE KNOWLEDGE PLATFORMS · PART 2</div></div>
+<div class="abs" style="left:40px;top:64px"><h1>Embeddings you can <span>read</span>.</h1>
+<div class="sub">Ask the corpus a typed question. Store the answer. Every dimension has a name, every match can say why. Measured on $n_records real GitHub issues from $corpus, against BM25 and a dense embedding.</div></div>
+
+<!-- ROW A: two kinds of vector -->
+<div class="panel" style="left:40px;top:222px;width:520px;height:250px">
+  <div class="ph">Dense vector</div><div class="pt">answers "what is this like?"</div><span class="tag b">384 UNNAMED DIMENSIONS</span>
+  <div class="numbers" style="left:22px;top:84px;width:476px;height:110px;overflow:hidden">[ 0.021, -0.113, 0.087, 0.004, -0.061, 0.132, -0.009, 0.077, -0.140, 0.052, 0.018, -0.096, 0.111, -0.027, 0.063, -0.008, 0.095, -0.119, 0.041, 0.006, -0.073, 0.128, -0.014, 0.088, -0.102, 0.036, 0.019, -0.081, 0.107, -0.033, 0.058, -0.011, 0.091, -0.124, 0.046, 0.002, -0.069, 0.135, -0.017, 0.083, -0.098, 0.031, 0.024, -0.086, 0.104, -0.038, 0.055, -0.006, 0.097, -0.116, 0.049, 0.009, -0.077, 0.131, … ]</div>
+  <div class="note" style="left:22px;top:216px;width:476px">great at similarity · silent about why · cannot be filtered on</div>
+</div>
+<div class="panel" style="left:640px;top:222px;width:520px;height:250px">
+  <div class="ph">Facet vector</div><div class="pt">answers "what is this?"</div><span class="tag g">$n_questions NAMED DIMENSIONS</span>
+  <div class="abs" style="left:22px;top:80px;width:476px">
+$facet_rows
+  </div>
+  <div class="note" style="left:22px;top:216px;width:476px">filterable · explainable · costs one decision-model call per record</div>
+</div>
+
+<!-- ROW B: pipeline -->
+<div class="stage" style="left:40px;top:500px">INDEX TIME, THEN QUERY TIME</div>
+<div class="box" style="left:40px;top:540px;width:130px;height:52px">Record<small>issue body</small></div>
+<div class="diamond" style="left:214px;top:534px"></div><div class="dl" style="left:171px;top:612px">decision model<br>N typed questions</div>
+<div class="box g" style="left:330px;top:540px;width:140px;height:52px">Facets<small>named probabilities</small></div>
+<div class="box b" style="left:330px;top:640px;width:140px;height:52px">Dense<small>bge-small</small></div>
+<div class="box" style="left:330px;top:740px;width:140px;height:52px">BM25<small>lexical</small></div>
+
+<div class="box" style="left:560px;top:640px;width:130px;height:52px">Query<small>natural language</small></div>
+<div class="diamond" style="left:734px;top:634px"></div><div class="dl" style="left:691px;top:712px">encoder<br>filter · prefer · ignore</div>
+<div class="box g" style="left:850px;top:540px;width:130px;height:52px">Facet score</div>
+<div class="box b" style="left:850px;top:640px;width:130px;height:52px">Cosine</div>
+<div class="box" style="left:850px;top:740px;width:130px;height:52px">BM25 score</div>
+<div class="box g" style="left:1030px;top:614px;width:130px;height:104px">RRF fusion<small>results +<br>"matched because"</small></div>
+
+<!-- ROW C: results -->
+<div class="stage" style="left:40px;top:830px">WHAT THE NUMBERS SAID · $decision_model_short · k = $k</div>
+<table style="left:40px;top:862px;width:1120px">
+<tr><th>System</th><th>typed nDCG@$k</th><th>typed R@$k</th><th>open MRR@$k</th><th>open R@$k</th></tr>
+$result_rows
+</table>
+<div class="note" style="left:40px;top:${note_top}px;width:1120px">$n_typed typed queries (truth from the repository's own labels) · $n_open open queries (a record's title → that record; titles never indexed) · labeller accuracy vs labels: $label_acc_line · second labeller $secondary_line</div>
+
+<!-- ROW D -->
+<div class="list g" style="left:40px;top:${list_top}px;width:550px;height:150px">
+  <h3>Use facets when</h3>
+  <li>The question is typed: kind, area, platform, "is it a regression"</li>
+  <li>Results must say why they matched</li>
+  <li>You want filters a vector cannot give you</li>
+</div>
+<div class="list b" style="left:610px;top:${list_top}px;width:550px;height:150px">
+  <h3>Keep dense when</h3>
+  <li>The question is open-world — nobody wrote it down in advance</li>
+  <li>Similarity is the job, not a category</li>
+  <li>Always: fuse, never replace</li>
+</div>
+
+<div class="foot"><span>Prashobh Paul · Enterprise AI Architect</span><span>$repo_url</span></div>
+
+<svg id="ov" width="1200" height="1500" viewBox="0 0 1200 1500">
+ <defs><marker id="ag" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1f8f5f"/></marker>
+ <marker id="ab" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#2f6fe0"/></marker>
+ <marker id="an" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#8a97ab"/></marker></defs>
+ <g id="paths" fill="none" stroke-width="1.8">
+  <path class="fl g" d="M170,566 L214,566" stroke="#1f8f5f" marker-end="url(#ag)"/>
+  <path class="fl g" d="M278,566 L330,566" stroke="#1f8f5f" marker-end="url(#ag)"/>
+  <path class="fl b" d="M105,592 L105,666 L330,666" stroke="#2f6fe0" marker-end="url(#ab)"/>
+  <path class="fl n" d="M105,666 L105,766 L330,766" stroke="#8a97ab" marker-end="url(#an)"/>
+  <path class="fl g" d="M470,566 L850,566" stroke="#1f8f5f" marker-end="url(#ag)"/>
+  <path class="fl b" d="M470,666 L560,666" stroke="#2f6fe0" stroke-dasharray="3 4"/>
+  <path class="fl b" d="M690,666 L734,666" stroke="#2f6fe0" marker-end="url(#ab)"/>
+  <path class="fl g" d="M798,666 L820,666 L820,566 L850,566" stroke="#1f8f5f" marker-end="url(#ag)"/>
+  <path class="fl b" d="M798,666 L850,666" stroke="#2f6fe0" marker-end="url(#ab)"/>
+  <path class="fl n" d="M798,666 L820,666 L820,766 L850,766" stroke="#8a97ab" marker-end="url(#an)"/>
+  <path class="fl n" d="M470,766 L850,766" stroke="#8a97ab" stroke-dasharray="3 4"/>
+  <path class="fl g" d="M980,566 L1005,566 L1005,640 L1030,640" stroke="#1f8f5f" marker-end="url(#ag)"/>
+  <path class="fl b" d="M980,666 L1030,666" stroke="#2f6fe0" marker-end="url(#ab)"/>
+  <path class="fl n" d="M980,766 L1005,766 L1005,692 L1030,692" stroke="#8a97ab" marker-end="url(#an)"/>
+ </g>
+ <g id="dots"></g>
+</svg>
+</div>
+<script>
+const paths=[...document.querySelectorAll('#paths path.fl')];const dotsG=document.getElementById('dots');const speed=60;
+function render(t){dotsG.innerHTML='';paths.forEach((p,i)=>{const L=p.getTotalLength();const gap=38;const n=Math.max(1,Math.floor(L/gap));
+const col=p.classList.contains('b')?'#2f6fe0':p.classList.contains('g')?'#1f8f5f':'#8a97ab';
+for(let k=0;k<n+1;k++){let d=((t*speed)+k*gap+i*13)%(L+gap)-gap*0.5;if(d<0||d>L)continue;const pt=p.getPointAtLength(d);
+const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',pt.x);c.setAttribute('cy',pt.y);c.setAttribute('r',3.6);c.setAttribute('fill',col);dotsG.appendChild(c);}});}
+render(0);
+</script>
+</body></html>

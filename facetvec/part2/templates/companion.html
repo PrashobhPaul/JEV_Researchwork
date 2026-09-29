@@ -1,0 +1,50 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:1500px;overflow:hidden;background:#0a1628;color:#f5f0e8}
+#c{position:relative;width:1200px;height:1500px;overflow:hidden;
+  background:
+    radial-gradient(900px 700px at 100% 0%, rgba(255,181,71,.16), rgba(255,181,71,0) 70%),
+    linear-gradient(rgba(90,122,154,.07) 1px, transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg, rgba(90,122,154,.07) 1px, transparent 1px) 0 0/40px 40px,
+    #0a1628}
+.mono{font-family:'JetBrains Mono',monospace}
+.eyebrow{position:absolute;left:80px;top:78px;font-size:18px;letter-spacing:.22em;color:#5a7a9a}
+h1{position:absolute;left:80px;top:150px;width:1040px;font-family:'Instrument Serif',serif;font-weight:400;font-size:96px;line-height:1.02;letter-spacing:-.01em}
+h1 em{font-style:normal;color:#ffb547}
+.rule{position:absolute;left:80px;right:80px;height:1px;background:rgba(90,122,154,.45)}
+.col{position:absolute;top:720px;width:490px;height:400px;border:1px solid rgba(90,122,154,.5);padding:40px}
+.col.l{left:80px}.col.r{left:630px;border-color:#ffb547}
+.col .k{font-size:17px;letter-spacing:.2em;color:#5a7a9a}.col.r .k{color:#ffb547}
+.col .q{font-family:'Instrument Serif',serif;font-size:52px;line-height:1.1;margin-top:26px}
+.col .d{font-size:18px;color:#5a7a9a;margin-top:26px;line-height:1.6}
+.vec{margin-top:40px;font-size:17px;line-height:1.9;color:#5a7a9a}
+.bar{display:flex;align-items:center;gap:14px;font-size:17px;line-height:1;margin:14px 0;color:#f5f0e8}
+.bar b{display:block;height:8px;background:#ffb547}
+.bar span.n{width:120px;color:#5a7a9a}
+.foot{position:absolute;left:80px;right:80px;bottom:70px;display:flex;justify-content:space-between;font-size:17px;color:#5a7a9a;letter-spacing:.06em}
+.foot .v{color:#f5f0e8}
+</style></head><body><div id="c">
+<div class="eyebrow mono">FIELD MANUAL / RETRIEVAL SYSTEMS</div>
+<h1>A vector you cannot read is a vector you cannot <em>argue with.</em></h1>
+<div class="rule" style="top:640px"></div>
+<div class="col l">
+  <div class="k mono">DENSE VECTOR</div>
+  <div class="q">What is this like?</div>
+  <div class="vec mono">[0.021, −0.113, 0.087, 0.004,<br>−0.061, 0.132, −0.009, …]</div>
+  <div class="d mono">384 unnamed dimensions</div>
+</div>
+<div class="col r">
+  <div class="k mono">FACET VECTOR</div>
+  <div class="q">What is this?</div>
+  <div style="margin-top:34px">
+    <div class="bar mono"><span class="n">kind</span><b style="width:190px"></b></div>
+    <div class="bar mono"><span class="n">area</span><b style="width:120px"></b></div>
+    <div class="bar mono"><span class="n">regression</span><b style="width:70px"></b></div>
+  </div>
+  <div class="d mono">$n_questions named dimensions</div>
+</div>
+<div class="foot mono"><span>$repo_url</span><span>Prashobh Paul</span></div>
+</div></body></html>

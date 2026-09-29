@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;margin:0;padding:0}html,body{width:1200px;height:675px;overflow:hidden;background:#f5f7fb;font-family:Inter,sans-serif;color:#0f1e3a}
+#c{padding:34px 40px;position:relative;height:675px}
+.eb{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:#5b6b85;font-weight:600}
+h1{font-size:34px;font-weight:800;letter-spacing:-.02em;margin:6px 0 4px}h1 span{color:#1f8f5f}
+.sub{font-size:14px;color:#5b6b85;margin-bottom:16px}
+table{border-collapse:collapse;font-size:15px;background:#fff;border:1.5px solid #dfe5ef;border-radius:12px;overflow:hidden;width:1120px}
+th,td{padding:10px 16px;text-align:right;border-bottom:1px solid #eef1f6}
+th{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#5b6b85;font-weight:600;background:#fafbfd}
+td:first-child,th:first-child{text-align:left}td.n{font-family:'JetBrains Mono',monospace}
+tr.win td{background:#f1faf5;font-weight:700}tr.lose td{background:#fff7f7}
+.note{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#5b6b85;line-height:1.6;margin-top:14px}
+.ft{position:absolute;left:40px;right:40px;bottom:16px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a97ab}
+</style></head><body><div id="c">
+<div class="eb">FACET VECTORS vs DENSE vs BM25 · $n_records REAL ISSUES · $corpus</div>
+<h1>$headline</h1>
+<div class="sub">Labeller: $decision_model · dense: $dense_model · k = $k · $n_typed typed + $n_open open queries · truth from the repository's own labels, no LLM judge</div>
+<table><tr><th>System</th><th>typed nDCG@$k</th><th>typed R@$k</th><th>open MRR@$k</th><th>open R@$k</th></tr>
+$result_rows</table>
+<div class="note">labeller accuracy vs labels: $label_acc_line · query encoder accuracy $encoder_acc · second labeller — $secondary_line</div>
+<div class="ft"><span>Prashobh Paul · Enterprise AI Architect</span><span>$repo_url · run $run_at</span></div>
+</div></body></html>

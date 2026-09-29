@@ -12,3 +12,7 @@ models = ["torch", "transformers>=4.45", "sentence-transformers>=3.0"]
 
 [tool.setuptools.packages.find]
 include = ["facetvec*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

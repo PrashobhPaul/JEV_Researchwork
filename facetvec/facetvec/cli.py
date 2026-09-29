@@ -45,6 +45,15 @@ def data_dir(cfg: dict) -> Path:
     return d
 
 
+def load_corpus(cfg: dict) -> list:
+    """The snapshot, with oracle facets re-derived from its labels under the current config."""
+    recs = gh.load(data_dir(cfg) / "corpus.jsonl")
+    kept, changed = gh.reapply_oracle(recs, cfg)
+    if changed or len(kept) != len(recs):
+        log(f"  oracle mapping re-applied: {changed} records changed, {len(recs) - len(kept)} dropped")
+    return kept
+
+
 def make_model(cfg: dict, fake: bool = False):
     if fake:
         from .decision.fake import KeywordModel
@@ -103,7 +112,7 @@ def cmd_fetch(cfg: dict, args) -> None:
 
 def cmd_label(cfg: dict, args) -> None:
     d = data_dir(cfg)
-    recs = gh.load(d / "corpus.jsonl")
+    recs = load_corpus(cfg)
     vocab = Vocabulary.from_config(cfg["questions"])
     dm = CachedModel(make_model(cfg, args.fake), DecisionCache(d / "decisions.sqlite"))
     log(f"labelling {len(recs)} records × {len(vocab.questions)} questions with {dm.name} (cache: {dm.cache.count()} entries)")
@@ -118,7 +127,7 @@ def cmd_label(cfg: dict, args) -> None:
 
 def cmd_embed(cfg: dict, args) -> None:
     d = data_dir(cfg)
-    recs = gh.load(d / "corpus.jsonl")
+    recs = load_corpus(cfg)
     idx = DenseIndex.build(recs, cfg.get("dense_model", "BAAI/bge-small-en-v1.5"), log=log)
     idx.save(d / "dense.npz")
     log(f"  saved {idx.vectors.shape} vectors")
@@ -126,7 +135,7 @@ def cmd_embed(cfg: dict, args) -> None:
 
 def cmd_eval(cfg: dict, args) -> None:
     d = data_dir(cfg)
-    recs = gh.load(d / "corpus.jsonl")
+    recs = load_corpus(cfg)
     vocab = Vocabulary.from_config(cfg["questions"])
     facets_m = load_facets(d / "facets.json")
     facets_o = load_facets(d / "facets_oracle.json")
