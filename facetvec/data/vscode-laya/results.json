@@ -1,0 +1,4652 @@
+{
+ "meta": {
+  "corpus": "microsoft/vscode",
+  "n_records": 400,
+  "n_questions": 6,
+  "decision_model": "laya:english@55cf4c4+dc5fafc03",
+  "dense_model": "BAAI/bge-small-en-v1.5",
+  "run_at": "2026-09-29 17:28 UTC",
+  "runner": "Linux / 4 cpu",
+  "label_minutes": 0.0017303784688313803,
+  "cache_entries": 2880,
+  "model_calls": 0
+ },
+ "k": 10,
+ "n_queries": {
+  "typed": 20,
+  "open": 60
+ },
+ "summary": {
+  "bm25": {
+   "typed": {
+    "p": 0.11,
+    "r": 0.091,
+    "ndcg": 0.128
+   },
+   "open": {
+    "r": 0.833,
+    "mrr": 0.713
+   }
+  },
+  "dense": {
+   "typed": {
+    "p": 0.15,
+    "r": 0.122,
+    "ndcg": 0.199
+   },
+   "open": {
+    "r": 0.917,
+    "mrr": 0.806
+   }
+  },
+  "facets": {
+   "typed": {
+    "p": 0.195,
+    "r": 0.138,
+    "ndcg": 0.245
+   },
+   "open": {
+    "r": 0.083,
+    "mrr": 0.017
+   }
+  },
+  "fused": {
+   "typed": {
+    "p": 0.2,
+    "r": 0.176,
+    "ndcg": 0.231
+   },
+   "open": {
+    "r": 0.833,
+    "mrr": 0.49
+   }
+  },
+  "facets-oracle": {
+   "typed": {
+    "p": 0.745,
+    "r": 0.792,
+    "ndcg": 1.0
+   },
+   "open": {
+    "r": 0.05,
+    "mrr": 0.029
+   }
+  },
+  "fused-oracle": {
+   "typed": {
+    "p": 0.47,
+    "r": 0.485,
+    "ndcg": 0.677
+   },
+   "open": {
+    "r": 0.883,
+    "mrr": 0.71
+   }
+  }
+ },
+ "label_accuracy": {
+  "kind": {
+   "n": 400,
+   "accuracy": 0.8,
+   "majority_baseline": 0.693,
+   "truth_distribution": {
+    "feature": 112,
+    "bug": 277,
+    "debt": 11
+   }
+  },
+  "area": {
+   "n": 400,
+   "accuracy": 0.075,
+   "majority_baseline": 0.448,
+   "truth_distribution": {
+    "editor": 6,
+    "workbench": 26,
+    "debug": 7,
+    "other": 161,
+    "scm": 2,
+    "terminal": 11,
+    "chat": 179,
+    "notebook": 1,
+    "remote": 7
+   }
+  },
+  "platform": {
+   "n": 400,
+   "accuracy": 0.46,
+   "majority_baseline": 0.973,
+   "truth_distribution": {
+    "any": 389,
+    "linux": 5,
+    "windows": 5,
+    "macos": 1
+   }
+  },
+  "regression": {
+   "n": 400,
+   "accuracy": 0.38,
+   "majority_baseline": 0.95,
+   "truth_distribution": {
+    "no": 380,
+    "yes": 20
+   }
+  },
+  "crash": {
+   "n": 400,
+   "accuracy": 0.845,
+   "majority_baseline": 0.978,
+   "truth_distribution": {
+    "no": 391,
+    "yes": 9
+   }
+  }
+ },
+ "query_encoder_accuracy": 0.842,
+ "examples": [
+  {
+   "query": "requests for new features",
+   "top": [
+    {
+     "id": 42880,
+     "title": "Have a history for recently edited editors",
+     "in_truth": true,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "feature",
+       "mode": "prefer",
+       "p": 0.83
+      }
+     ]
+    },
+    {
+     "id": 338225,
+     "title": "Agents Window: Populate New Session drafts from product protocol links",
+     "in_truth": true,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "feature",
+       "mode": "prefer",
+       "p": 0.86
+      }
+     ]
+    },
+    {
+     "id": 336500,
+     "title": "Long-running Agent Host sessions accumulate issue and pull-request references without clea",
+     "in_truth": true,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "feature",
+       "mode": "prefer",
+       "p": 0.27
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "query": "engineering debt",
+   "top": [
+    {
+     "id": 329106,
+     "title": "Restrict terminal auto-approval settings in untrusted workspaces",
+     "in_truth": true,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "debt",
+       "mode": "prefer",
+       "p": 0.76
+      }
+     ]
+    },
+    {
+     "id": 205598,
+     "title": "Invoking deltaDecorations recursively could lead to leaking decorations.",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "debt",
+       "mode": "prefer",
+       "p": 0.15
+      }
+     ]
+    },
+    {
+     "id": 329042,
+     "title": "Harden PowerShell terminal auto-approval parsing and default rules",
+     "in_truth": true,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "debt",
+       "mode": "prefer",
+       "p": 0.57
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "query": "requests for new features about the integrated terminal",
+   "top": [
+    {
+     "id": 327238,
+     "title": "Terminal bell sounds on every prompt when Shell Integration is enabled (OSC 633 BEL termin",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "feature",
+       "mode": "filter",
+       "p": 0.05
+      },
+      {
+       "facet": "area",
+       "option": "terminal",
+       "mode": "filter",
+       "p": 0.86
+      },
+      {
+       "facet": "platform",
+       "option": "linux",
+       "mode": "prefer",
+       "p": 0.25
+      }
+     ]
+    },
+    {
+     "id": 329106,
+     "title": "Restrict terminal auto-approval settings in untrusted workspaces",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "feature",
+       "mode": "filter",
+       "p": 0.15
+      },
+      {
+       "facet": "area",
+       "option": "terminal",
+       "mode": "filter",
+       "p": 0.17
+      },
+      {
+       "facet": "platform",
+       "option": "linux",
+       "mode": "prefer",
+       "p": 0.32
+      }
+     ]
+    },
+    {
+     "id": 329056,
+     "title": "Require confirmation for CMD delayed-expansion redirect destinations",
+     "in_truth": false,
+     "because": [
+      {
+       "facet": "kind",
+       "option": "feature",
+       "mode": "filter",
+       "p": 0.58
+      },
+      {
+       "facet": "area",
+       "option": "terminal",
+       "mode": "filter",
+       "p": 0.42
+      },
+      {
+       "facet": "platform",
+       "option": "linux",
+       "mode": "prefer",
+       "p": 0.48
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "per_query": [
+  {
+   "id": "typed-01",
+   "family": "typed",
+   "text": "requests for new features",
+   "n_truth": 112,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "feature"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.4,
+     "r": 0.03571428571428571,
+     "ndcg": 0.47338717040861195,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.8,
+     "r": 0.07142857142857142,
+     "ndcg": 0.8263333286520083,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 1.0,
+     "r": 0.08928571428571429,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.6,
+     "r": 0.05357142857142857,
+     "ndcg": 0.7034066032439746,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.08928571428571429,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 1.0,
+     "r": 0.08928571428571429,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-02",
+   "family": "typed",
+   "text": "engineering debt",
+   "n_truth": 11,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "debt"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.2,
+     "r": 0.18181818181818182,
+     "ndcg": 0.3589542101716347,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.3,
+     "r": 0.2727272727272727,
+     "ndcg": 0.42257499837058643,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.2,
+     "r": 0.18181818181818182,
+     "ndcg": 0.33013764944712026,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.9090909090909091,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.6,
+     "r": 0.5454545454545454,
+     "ndcg": 0.693761356516045,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-03",
+   "family": "typed",
+   "text": "requests for new features about the integrated terminal",
+   "n_truth": 3,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "feature"
+    ],
+    "area": [
+     "filter",
+     "terminal"
+    ],
+    "platform": [
+     "prefer",
+     "linux"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.3333333333333333,
+     "ndcg": 0.18154179253735267,
+     "mrr": 0.2
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 0.3333333333333333,
+     "ndcg": 0.18154179253735267,
+     "mrr": 0.2
+    },
+    "facets-oracle": {
+     "p": 0.3,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 0.3333333333333333,
+     "ndcg": 0.46927872602275644,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-04",
+   "family": "typed",
+   "text": "things that are broken about remote development",
+   "n_truth": 7,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "remote"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.14285714285714285,
+     "ndcg": 0.27487633291429087,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.14285714285714285,
+     "ndcg": 0.13743816645714543,
+     "mrr": 0.3333333333333333
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.2,
+     "r": 0.2857142857142857,
+     "ndcg": 0.18462675384408753,
+     "mrr": 0.16666666666666666
+    },
+    "facets-oracle": {
+     "p": 0.7,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.4,
+     "r": 0.5714285714285714,
+     "ndcg": 0.6773676006644395,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-05",
+   "family": "typed",
+   "text": "tech debt tasks in the AI chat",
+   "n_truth": 4,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "debt"
+    ],
+    "area": [
+     "filter",
+     "chat"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.3903800499921017,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.4,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.3903800499921017,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-06",
+   "family": "typed",
+   "text": "bug reports in the workbench UI",
+   "n_truth": 20,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "workbench"
+    ],
+    "regression": [
+     "filter",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.06625422345438903,
+     "mrr": 0.1111111111111111
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.2,
+     "r": 0.1,
+     "ndcg": 0.13961814555374907,
+     "mrr": 0.14285714285714285
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.07336392209936005,
+     "mrr": 0.14285714285714285
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.5,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.5,
+     "r": 0.25,
+     "ndcg": 0.4553242592576836,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "typed-07",
+   "family": "typed",
+   "text": "things that are broken in the debugger",
+   "n_truth": 4,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "debug"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.16812753627111746,
+     "mrr": 0.25
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.24630238874073,
+     "mrr": 0.5
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.4,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.4,
+     "r": 1.0,
+     "ndcg": 0.9447176050778178,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-08",
+   "family": "typed",
+   "text": "requests for new features in the workbench UI",
+   "n_truth": 6,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "feature"
+    ],
+    "area": [
+     "filter",
+     "workbench"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.16666666666666666,
+     "ndcg": 0.10086747116627115,
+     "mrr": 0.14285714285714285
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 0.16666666666666666,
+     "ndcg": 0.09109240322345806,
+     "mrr": 0.1111111111111111
+    },
+    "facets-oracle": {
+     "p": 0.6,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.2,
+     "r": 0.3333333333333333,
+     "ndcg": 0.4539036202482202,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-09",
+   "family": "typed",
+   "text": "things that are broken on linux",
+   "n_truth": 4,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "platform": [
+     "filter",
+     "linux"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.2,
+     "r": 0.5,
+     "ndcg": 0.34620964322385606,
+     "mrr": 0.3333333333333333
+    },
+    "facets": {
+     "p": 0.2,
+     "r": 0.5,
+     "ndcg": 0.5294362295028773,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.2,
+     "r": 0.5,
+     "ndcg": 0.5078961547485289,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.4,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.4,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-10",
+   "family": "typed",
+   "text": "bugs on windows",
+   "n_truth": 4,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "platform": [
+     "filter",
+     "windows"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.11751610475642714,
+     "mrr": 0.1111111111111111
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.25,
+     "ndcg": 0.24630238874073,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.2,
+     "r": 0.5,
+     "ndcg": 0.29007579773858083,
+     "mrr": 0.2
+    },
+    "facets-oracle": {
+     "p": 0.4,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.3,
+     "r": 0.75,
+     "ndcg": 0.8048099750039491,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-11",
+   "family": "typed",
+   "text": "things that are broken that are regressions",
+   "n_truth": 20,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.07839826897867533,
+     "mrr": 0.16666666666666666
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.13886244387355454,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.06362078819895171,
+     "mrr": 0.1
+    },
+    "fused": {
+     "p": 0.4,
+     "r": 0.2,
+     "ndcg": 0.3321737110889728,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.5,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.8,
+     "r": 0.4,
+     "ndcg": 0.7975167679274937,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-12",
+   "family": "typed",
+   "text": "things that are broken that crash or freeze",
+   "n_truth": 8,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "debug"
+    ],
+    "crash": [
+     "filter",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 0.125,
+     "ndcg": 0.2529427027676571,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.8,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.7,
+     "r": 0.875,
+     "ndcg": 0.9202054614375518,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-13",
+   "family": "typed",
+   "text": "about remote development",
+   "n_truth": 7,
+   "intent_model": {
+    "area": [
+     "filter",
+     "remote"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.14285714285714285,
+     "ndcg": 0.0979129253499678,
+     "mrr": 0.16666666666666666
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.7,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.3,
+     "r": 0.42857142857142855,
+     "ndcg": 0.5546406709327603,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-14",
+   "family": "typed",
+   "text": "about the editor",
+   "n_truth": 6,
+   "intent_model": {
+    "area": [
+     "filter",
+     "editor"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 0.16666666666666666,
+     "ndcg": 0.09546043308946733,
+     "mrr": 0.125
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.16666666666666666,
+     "ndcg": 0.09109240322345806,
+     "mrr": 0.1111111111111111
+    },
+    "facets": {
+     "p": 0.2,
+     "r": 0.3333333333333333,
+     "ndcg": 0.4539036202482202,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.2,
+     "r": 0.3333333333333333,
+     "ndcg": 0.28201326940239274,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.6,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.4,
+     "r": 0.6666666666666666,
+     "ndcg": 0.6764554268686237,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-15",
+   "family": "typed",
+   "text": "about the integrated terminal",
+   "n_truth": 11,
+   "intent_model": {
+    "area": [
+     "filter",
+     "terminal"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.3,
+     "r": 0.2727272727272727,
+     "ndcg": 0.199306233590118,
+     "mrr": 0.125
+    },
+    "dense": {
+     "p": 0.3,
+     "r": 0.2727272727272727,
+     "ndcg": 0.26462022272743835,
+     "mrr": 0.3333333333333333
+    },
+    "facets": {
+     "p": 0.5,
+     "r": 0.45454545454545453,
+     "ndcg": 0.43199642233783886,
+     "mrr": 0.3333333333333333
+    },
+    "fused": {
+     "p": 0.5,
+     "r": 0.45454545454545453,
+     "ndcg": 0.4818809355796682,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.9090909090909091,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.7,
+     "r": 0.6363636363636364,
+     "ndcg": 0.800693766409882,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-16",
+   "family": "typed",
+   "text": "in the AI chat",
+   "n_truth": 179,
+   "intent_model": {
+    "area": [
+     "filter",
+     "chat"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.5,
+     "r": 0.027932960893854747,
+     "ndcg": 0.5142842514302275,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.7,
+     "r": 0.03910614525139665,
+     "ndcg": 0.7097402150304354,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.8,
+     "r": 0.0446927374301676,
+     "ndcg": 0.8263333286520083,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.7,
+     "r": 0.03910614525139665,
+     "ndcg": 0.7280855459907165,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.055865921787709494,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.8,
+     "r": 0.0446927374301676,
+     "ndcg": 0.804810999209339,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-17",
+   "family": "typed",
+   "text": "in the debugger",
+   "n_truth": 7,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "debug"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.2,
+     "r": 0.2857142857142857,
+     "ndcg": 0.4483039899025303,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.3,
+     "r": 0.42857142857142855,
+     "ndcg": 0.2958750506849612,
+     "mrr": 0.2
+    },
+    "fused": {
+     "p": 0.2,
+     "r": 0.2857142857142857,
+     "ndcg": 0.22471947398559278,
+     "mrr": 0.25
+    },
+    "facets-oracle": {
+     "p": 0.7,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.5,
+     "r": 0.7142857142857143,
+     "ndcg": 0.719779994662349,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-18",
+   "family": "typed",
+   "text": "in the workbench UI",
+   "n_truth": 26,
+   "intent_model": {
+    "area": [
+     "filter",
+     "workbench"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 0.038461538461538464,
+     "ndcg": 0.07336392209936005,
+     "mrr": 0.14285714285714285
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.38461538461538464,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.2,
+     "r": 0.07692307692307693,
+     "ndcg": 0.3589542101716347,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-19",
+   "family": "typed",
+   "text": "that are regressions",
+   "n_truth": 20,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.05,
+     "ndcg": 0.13886244387355454,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.2,
+     "r": 0.1,
+     "ndcg": 0.12987501165334076,
+     "mrr": 0.1111111111111111
+    },
+    "facets-oracle": {
+     "p": 1.0,
+     "r": 0.5,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.6,
+     "r": 0.3,
+     "ndcg": 0.6313419460517601,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "typed-20",
+   "family": "typed",
+   "text": "that crash or freeze",
+   "n_truth": 9,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "debug"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "filter",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 0.1111111111111111,
+     "ndcg": 0.07834851647149511,
+     "mrr": 0.14285714285714285
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 0.1111111111111111,
+     "ndcg": 0.23504554941448536,
+     "mrr": 1.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.9,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.4,
+     "r": 0.4444444444444444,
+     "ndcg": 0.38112642176191824,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-01",
+   "family": "open",
+   "text": "Enabling \"voice mode\" once in a new session view shows it enabled in new-session view next time but doesn't work",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "area": [
+     "prefer",
+     "chat"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-02",
+   "family": "open",
+   "text": "Expanded Codex support in the agent host does not work",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "extensions"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.31546487678572877,
+     "mrr": 0.125
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3562071871080222,
+     "mrr": 0.16666666666666666
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-03",
+   "family": "open",
+   "text": "Agents window Markdown editor: Undo and redo do not apply edits",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "editor"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-04",
+   "family": "open",
+   "text": "Renaming session should rename default chat",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "chat"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3333333333333333,
+     "mrr": 0.14285714285714285
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3333333333333333,
+     "mrr": 0.14285714285714285
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-05",
+   "family": "open",
+   "text": "Voice mode feedback from the team",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "chat"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-06",
+   "family": "open",
+   "text": "Sandbox bypass confirmation should offer disabling sandbox for the session",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "extensions"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-07",
+   "family": "open",
+   "text": "Gemini 3 Flash loops",
+   "n_truth": 1,
+   "intent_model": {
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "crash": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3010299956639812,
+     "mrr": 0.1111111111111111
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    }
+   }
+  },
+  {
+   "id": "open-08",
+   "family": "open",
+   "text": "Pull Requests pill popover blinks and closes unexpectedly",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-09",
+   "family": "open",
+   "text": "Remote agent-host sync drops a skill's sibling references/ files, breaking Markdown links from SKILL.md",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "prefer",
+     "notebook"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-10",
+   "family": "open",
+   "text": "Feature request: Configurable reasoning level and \u201cmax context\u201d mode in VS Code Copilot Chat",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "feature"
+    ],
+    "area": [
+     "filter",
+     "chat"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.43067655807339306,
+     "mrr": 0.25
+    },
+    "facets-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-11",
+   "family": "open",
+   "text": "Allow for exporting/importing Github Copilot Chat to be done programatically",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "feature"
+    ],
+    "area": [
+     "filter",
+     "chat"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3010299956639812,
+     "mrr": 0.1111111111111111
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.38685280723454163,
+     "mrr": 0.2
+    },
+    "facets-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-12",
+   "family": "open",
+   "text": "Announce new-session welcome phrases to screen readers",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "extensions"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-13",
+   "family": "open",
+   "text": "Agent host is launching and it's launching copilot CLI when I have explicitly opted out of AI features",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    }
+   }
+  },
+  {
+   "id": "open-14",
+   "family": "open",
+   "text": "Allow to investigate stack traces in VS Code Insiders by using source maps",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "feature"
+    ],
+    "area": [
+     "filter",
+     "extensions"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-15",
+   "family": "open",
+   "text": "can't open diff links in dev tunnel remote AH",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "remote"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.31546487678572877,
+     "mrr": 0.125
+    }
+   }
+  },
+  {
+   "id": "open-16",
+   "family": "open",
+   "text": "Native context menu hijacks custom one in webview editor",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "editor"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    }
+   }
+  },
+  {
+   "id": "open-17",
+   "family": "open",
+   "text": "Grok Stuck in repetition",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    }
+   }
+  },
+  {
+   "id": "open-18",
+   "family": "open",
+   "text": "[Error] [GitHub.copilot-chat] unhandlederror-POST external-embeddings-code-search failed with status 404",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "chat"
+    ],
+    "regression": [
+     "filter",
+     "yes"
+    ],
+    "crash": [
+     "filter",
+     "yes"
+    ],
+    "has_repro": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-19",
+   "family": "open",
+   "text": "Option to not open the git repo.",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3562071871080222,
+     "mrr": 0.16666666666666666
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3562071871080222,
+     "mrr": 0.16666666666666666
+    }
+   }
+  },
+  {
+   "id": "open-20",
+   "family": "open",
+   "text": "[Error] potential listener LEAK \u2014 documentSemanticTokens",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "extensions"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3333333333333333,
+     "mrr": 0.14285714285714285
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-21",
+   "family": "open",
+   "text": "Remove automation client-side support",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "feature"
+    ],
+    "area": [
+     "prefer",
+     "extensions"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-22",
+   "family": "open",
+   "text": "Profile button highlight/padding misaligned in Agents view",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    }
+   }
+  },
+  {
+   "id": "open-23",
+   "family": "open",
+   "text": "Fancy animated button cannot be stopped by keyboard alone",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "extensions"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-24",
+   "family": "open",
+   "text": "Agent Host terminal auto-approve should use PowerShell grammar for PowerShell commands",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "terminal"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3333333333333333,
+     "mrr": 0.14285714285714285
+    },
+    "facets-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.43067655807339306,
+     "mrr": 0.25
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-25",
+   "family": "open",
+   "text": "MCP Registry remote URL variables are not converted during install",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "remote"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3562071871080222,
+     "mrr": 0.16666666666666666
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-26",
+   "family": "open",
+   "text": "Retrying opening a file with a custom editor always gives the same error",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "editor"
+    ],
+    "regression": [
+     "filter",
+     "yes"
+    ],
+    "has_repro": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-27",
+   "family": "open",
+   "text": "Bound Linux smoke-test disk diagnostics to avoid job timeout",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "debug"
+    ],
+    "platform": [
+     "filter",
+     "linux"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3562071871080222,
+     "mrr": 0.16666666666666666
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-28",
+   "family": "open",
+   "text": "Allow (modifier)+click for \"step in target\"",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "feature"
+    ],
+    "has_repro": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-29",
+   "family": "open",
+   "text": "Agent Customization: Unable to migrate instructions",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-30",
+   "family": "open",
+   "text": "Show confetti when setting enabled when `Mark as Done` is clicked on this PR merged card",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "feature"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.2890648263178879,
+     "mrr": 0.1
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    }
+   }
+  },
+  {
+   "id": "open-31",
+   "family": "open",
+   "text": "Abnormal Tab with VS Code High Contrast Theme",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "editor"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-32",
+   "family": "open",
+   "text": "API proposal: Expose AuthenticationSession access token lifetime",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "feature"
+    ],
+    "area": [
+     "filter",
+     "scm"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.38685280723454163,
+     "mrr": 0.2
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-33",
+   "family": "open",
+   "text": "New \"Modern UI\" broke some of the workbench colorCustomizations",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "workbench"
+    ],
+    "regression": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-34",
+   "family": "open",
+   "text": "\"Open View\" quick access: filtering by container name is case-sensitive",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "extensions"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-35",
+   "family": "open",
+   "text": "Copy/Paste files in Explorer pastes in wrong folder",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-36",
+   "family": "open",
+   "text": "Automation session is sometimes empty",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.38685280723454163,
+     "mrr": 0.2
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.38685280723454163,
+     "mrr": 0.2
+    }
+   }
+  },
+  {
+   "id": "open-37",
+   "family": "open",
+   "text": "Folder picker resurfaces deleted folder",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-38",
+   "family": "open",
+   "text": "Start dictation in editor or terminal causes Chat to show it's \"dictation\" bubble",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "chat"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ],
+    "has_repro": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-39",
+   "family": "open",
+   "text": "Dev Container session creation lacks visible progress",
+   "n_truth": 1,
+   "intent_model": {
+    "regression": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-40",
+   "family": "open",
+   "text": "Agent Host: Copilot steering messages drop their attachments, so the agent never sees them",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-41",
+   "family": "open",
+   "text": "Allow agents to create research sessions without a new worktree",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "feature"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.31546487678572877,
+     "mrr": 0.125
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-42",
+   "family": "open",
+   "text": "Expose large shell output artifact paths through the Copilot SDK",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "feature"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-43",
+   "family": "open",
+   "text": "Chat input stack: make the notice/input seam structural instead of per-surface offsets",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "feature"
+    ],
+    "area": [
+     "filter",
+     "chat"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3333333333333333,
+     "mrr": 0.14285714285714285
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.38685280723454163,
+     "mrr": 0.2
+    }
+   }
+  },
+  {
+   "id": "open-44",
+   "family": "open",
+   "text": "Child-process IPC cleanup creates an unhandled rejection when a request fails",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "regression": [
+     "filter",
+     "yes"
+    ],
+    "has_repro": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.43067655807339306,
+     "mrr": 0.25
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-45",
+   "family": "open",
+   "text": "Microphone picker shows when there's only one mic but shouldn't",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-46",
+   "family": "open",
+   "text": "Webview Panel with `enableFindWidget` does not work after Moving Editor Group into New Window",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "extensions"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    }
+   }
+  },
+  {
+   "id": "open-47",
+   "family": "open",
+   "text": "Custom editor retains previous error on reopen even when it no longer applies",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "editor"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.38685280723454163,
+     "mrr": 0.2
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-48",
+   "family": "open",
+   "text": "Entire window goes blank after a period of time",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "debug"
+    ],
+    "crash": [
+     "filter",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.31546487678572877,
+     "mrr": 0.125
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-49",
+   "family": "open",
+   "text": "Agent Host fails to load user settings at startup",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-50",
+   "family": "open",
+   "text": "Client sending models to Auto that are not in the Auto list",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-51",
+   "family": "open",
+   "text": "When Codex or Claude already have models, you can no longer click Copilot if it has no models",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "workbench"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.31546487678572877,
+     "mrr": 0.125
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    }
+   }
+  },
+  {
+   "id": "open-52",
+   "family": "open",
+   "text": "Chat scroll position is lost when switching sessions",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "chat"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    }
+   }
+  },
+  {
+   "id": "open-53",
+   "family": "open",
+   "text": "Selected model keeps switching back to GPT 4.1 / Sonnet 4",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "editor"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-54",
+   "family": "open",
+   "text": "Agents Window: Remove unified workspace picker flyout hover delay",
+   "n_truth": 1,
+   "intent_model": {
+    "platform": [
+     "prefer",
+     "windows"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-55",
+   "family": "open",
+   "text": "Combined permission and mode picker loses its background in dark themes",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ],
+    "area": [
+     "filter",
+     "editor"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  },
+  {
+   "id": "open-56",
+   "family": "open",
+   "text": "Modern UI - icons in the bottom panel are not highlighted on hover",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "has_repro": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.6309297535714575,
+     "mrr": 0.5
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    }
+   }
+  },
+  {
+   "id": "open-57",
+   "family": "open",
+   "text": "Edits open really big tabs",
+   "n_truth": 1,
+   "intent_model": {
+    "area": [
+     "filter",
+     "editor"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.2890648263178879,
+     "mrr": 0.1
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.3333333333333333,
+     "mrr": 0.14285714285714285
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.5,
+     "mrr": 0.3333333333333333
+    }
+   }
+  },
+  {
+   "id": "open-58",
+   "family": "open",
+   "text": "Wrong link color in plan widget",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "filter",
+     "bug"
+    ],
+    "regression": [
+     "prefer",
+     "yes"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    }
+   }
+  },
+  {
+   "id": "open-59",
+   "family": "open",
+   "text": "'Updating' badge on titlebar gearwheel is not circular",
+   "n_truth": 1,
+   "intent_model": {
+    "kind": [
+     "prefer",
+     "bug"
+    ]
+   },
+   "metrics": {
+    "bm25": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.2890648263178879,
+     "mrr": 0.1
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 0.2890648263178879,
+     "mrr": 0.1
+    }
+   }
+  },
+  {
+   "id": "open-60",
+   "family": "open",
+   "text": "Agents renderer OOM: unbounded workspaceFileCount telemetry search materializes every file",
+   "n_truth": 1,
+   "intent_model": {},
+   "metrics": {
+    "bm25": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "dense": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    },
+    "facets-oracle": {
+     "p": 0.0,
+     "r": 0.0,
+     "ndcg": 0.0,
+     "mrr": 0.0
+    },
+    "fused-oracle": {
+     "p": 0.1,
+     "r": 1.0,
+     "ndcg": 1.0,
+     "mrr": 1.0
+    }
+   }
+  }
+ ]
+}

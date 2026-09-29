@@ -2,3 +2,4 @@ transformers>=4.45
 sentence-transformers>=3.0
 rank-bm25>=0.2.2
 numpy>=1.26
+laya==0.3.21

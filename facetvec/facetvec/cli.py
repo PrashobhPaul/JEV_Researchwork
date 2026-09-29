@@ -69,11 +69,15 @@ def make_model(cfg: dict, fake: bool = False):
         from .decision.logit_readout import LogitReadoutModel, ReadoutConfig
 
         return LogitReadoutModel(ReadoutConfig(**rc))
+    if adapter == "laya":
+        from .decision.laya import LayaConfig, LayaModel
+
+        return LayaModel(LayaConfig(**rc))
     if adapter == "systemone-api":
         from .decision.systemone_api import SystemOneAPIModel, SystemOneConfig
 
         return SystemOneAPIModel(SystemOneConfig(**rc))
-    raise SystemExit(f"unknown decision_model.adapter {adapter!r} (lumma-fev | logit-readout | systemone-api)")
+    raise SystemExit(f"unknown decision_model.adapter {adapter!r} (lumma-fev | logit-readout | laya | systemone-api)")
 
 
 # ----- commands ----------------------------------------------------------------------------------
