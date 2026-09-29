@@ -1,0 +1,7 @@
+{
+  "name": "ollama",
+  "planner": {"backend": "openai-compatible", "model": "qwen2.5:14b"},
+  "coder": {"backend": "openai-compatible", "model": "qwen2.5-coder:7b"},
+  "max_steps": 8,
+  "seed": 7
+}
