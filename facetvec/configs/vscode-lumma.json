@@ -173,7 +173,7 @@
   "decision_model": {
     "adapter": "lumma-fev",
     "model_name": "FrontiersMind/Lumma-fev-0.6b",
-    "dtype": "bfloat16",
+    "dtype": "float32",
     "descriptions": {
       "kind": {
         "bug": "a bug report: something is broken, wrong, or crashes",
