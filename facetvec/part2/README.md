@@ -17,7 +17,11 @@ All numbers come from `facetvec-evaluate` runs on branch `part2` (GitHub-hosted 
 | Qwen2.5-0.5B-Instruct, logit readout | `configs/vscode.json` | [run 3](https://github.com/PrashobhPaul/JEV_Researchwork/actions/runs/36489233976) | `40ee9bc` |
 | Lumma-Fev-0.6B, native `decide()`, float32 | `configs/vscode-lumma.json` | [run 6](https://github.com/PrashobhPaul/JEV_Researchwork/actions/runs/36514366131) | `d190f86` |
 
-`out/` was rendered from those two `results.json` files at commit `c70bf08`.
+`out/` was rendered from those two `results.json` files at commit `c70bf08`:
+`explainer.png` + `explainer_animated.mp4/.gif`, `results_card.png`, `matched_because.png`,
+`companion.png` (single-image feed card), `post.md`, and `linkedin_pack.md` (posting order and a
+prepared reply for every likely comment). `github_results_vscode.png` and
+`github_results_vscode-lumma.png` are the README results sections as GitHub renders them on `part2`.
 
 ## What was tried before those runs, and why
 
