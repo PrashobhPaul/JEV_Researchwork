@@ -140,6 +140,10 @@ def context(pri: dict, sec: dict | None, repo_url: str) -> dict:
         "encoder_acc": f3(pri["query_encoder_accuracy"] or 0.0),
         "secondary_model": (sec["meta"]["decision_model"].split(":")[1] if sec else "n/a"),
         "secondary_typed_ndcg": f3(sec["summary"]["facets"]["typed"]["ndcg"]) if sec else "n/a",
+        "bm25_open_mrr": f3(s["bm25"]["open"]["mrr"]),
+        "secondary_fused_typed_ndcg": f3(sec["summary"]["fused"]["typed"]["ndcg"]) if sec else "n/a",
+        "area_acc": f3(pri["label_accuracy"].get("area", {}).get("accuracy", 0.0)),
+        "area_majority": f3(pri["label_accuracy"].get("area", {}).get("majority_baseline", 0.0)),
         "kind_acc": f3(pri["label_accuracy"].get("kind", {}).get("accuracy", 0.0)),
         "kind_majority": f3(pri["label_accuracy"].get("kind", {}).get("majority_baseline", 0.0)),
         "example_query": (pri["examples"][0]["query"] if pri.get("examples") else ""),
@@ -222,6 +226,7 @@ def main() -> None:
         animate(expl, OUT / "explainer_animated.mp4", OUT / "explainer_animated.gif", 1200, 1500)
     screenshot(fill((TPL / "results_card.html").read_text(), ctx), OUT / "results_card.png", 1200, 675)
     screenshot(matched_html(pri, ctx), OUT / "matched_because.png", 1200, 675)
+    screenshot(fill((TPL / "companion.html").read_text(), ctx), OUT / "companion.png", 1200, 1500, scale=1.0)
     (OUT / "post.md").write_text(fill((TPL / "post.md").read_text(), ctx), encoding="utf-8")
     (OUT / "context.json").write_text(json.dumps({k: v for k, v in ctx.items() if not k.endswith("_rows")}, indent=1))
     print("wrote", sorted(p.name for p in OUT.iterdir()))
